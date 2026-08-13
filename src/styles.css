@@ -253,6 +253,141 @@
   animation: fade-up 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* ---------- Botões premium ---------- */
+@keyframes btn-shine {
+  from {
+    transform: translateX(-120%) skewX(-16deg);
+  }
+  to {
+    transform: translateX(220%) skewX(-16deg);
+  }
+}
+
+@utility btn-premium {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 45%;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      oklch(1 0 0 / 45%),
+      transparent
+    );
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:hover::after {
+    opacity: 1;
+    animation: btn-shine 780ms ease-out;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Cena animada do táxi ---------- */
+@keyframes taxi-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-0.35deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(0.35deg);
+  }
+}
+
+@keyframes shadow-breathe {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scaleX(0.9);
+    opacity: 0.32;
+  }
+}
+
+@keyframes halo-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes road-dash {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -6rem;
+  }
+}
+
+@keyframes speed-line {
+  0% {
+    transform: translateX(30%) scaleX(0.2);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-140%) scaleX(1);
+    opacity: 0;
+  }
+}
+
+@utility animate-taxi-float {
+  animation: taxi-float 6s ease-in-out infinite;
+}
+
+@utility animate-shadow-breathe {
+  animation: shadow-breathe 6s ease-in-out infinite;
+}
+
+@utility animate-halo-pulse {
+  animation: halo-pulse 7s ease-in-out infinite;
+}
+
+@utility road-dash {
+  background-image: linear-gradient(
+    to right,
+    var(--yellow) 0 2.6rem,
+    transparent 2.6rem 6rem
+  );
+  background-size: 6rem 100%;
+  background-repeat: repeat-x;
+  animation: road-dash 900ms linear infinite;
+}
+
+@utility animate-speed-line {
+  animation: speed-line 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
