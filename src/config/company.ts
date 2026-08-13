@@ -3,9 +3,9 @@ export const company = {
   phone: "(11) 3535-5832",
   phoneRaw: "1135355832",
   phoneTel: "+551135355832",
-  // Número oficial de WhatsApp ainda não confirmado.
-  // Preencha com o formato internacional (ex.: "5511999999999") para ativar os botões.
-  whatsapp: "",
+  // WhatsApp oficial (formato internacional).
+  whatsapp: "5511968969503",
+  whatsappDisplay: "(11) 96896-9503",
   email: "falecom@radiotaxiligacao.com.br",
   address: {
     street: "Rua Sapucaia, 500",
@@ -22,6 +22,12 @@ export const company = {
   ],
   mapsQuery: "Rua Sapucaia, 500, Mooca, São Paulo - SP, 03170-050",
 } as const;
+
+export const stats = [
+  { value: "22+", label: "anos no mercado", detail: "Tradição no atendimento de táxi em São Paulo." },
+  { value: "100 mil+", label: "clientes satisfeitos", detail: "Corridas urbanas, agendadas e empresariais." },
+  { value: "5", label: "regiões atendidas", detail: "Mooca, Tatuapé, Vila Prudente, Belém e Brás." },
+] as const;
 
 export const fares = {
   bandeirada: 6.55,
