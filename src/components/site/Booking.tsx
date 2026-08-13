@@ -18,8 +18,8 @@ function buildGoogleCalendarUrl(input: {
   destination: string;
   notes: string;
 }) {
-  const [year, month, day] = input.date.split("-").map(Number);
-  const [hour, minute] = input.time.split(":").map(Number);
+  const [year = 0, month = 1, day = 1] = input.date.split("-").map(Number);
+  const [hour = 0, minute = 0] = input.time.split(":").map(Number);
   const pad = (n: number) => String(n).padStart(2, "0");
   const start = `${year}${pad(month)}${pad(day)}T${pad(hour)}${pad(minute)}00`;
   const endHour = (hour + 1) % 24;
