@@ -52,8 +52,9 @@ export function FareCalculator() {
   }
 
   return (
-    <section id="estimativa" className="border-b border-border bg-secondary/60">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+    <section id="estimativa" className="surface-soft relative overflow-hidden border-b border-border">
+      <div className="pointer-events-none absolute inset-0 grid-lines-light" aria-hidden="true" />
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
             Estimativa de Valor da Corrida
@@ -67,7 +68,7 @@ export function FareCalculator() {
           <form
             onSubmit={calculate}
             noValidate
-            className="rounded-2xl bg-card p-6 shadow-soft sm:p-8 lg:col-span-3"
+            className="rounded-2xl border border-border bg-card/95 p-6 shadow-lift backdrop-blur-sm sm:p-8 lg:col-span-3"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="sm:col-span-2">
@@ -169,7 +170,8 @@ export function FareCalculator() {
             </div>
           </form>
 
-          <div className="rounded-2xl surface-dark p-6 sm:p-8 lg:col-span-2">
+          <div className="relative overflow-hidden rounded-2xl surface-dark p-6 shadow-lift sm:p-8 lg:col-span-2">
+            <div className="pointer-events-none absolute inset-0 dark-glow" aria-hidden="true" />
             <h3 className="text-lg font-extrabold">Tarifas vigentes</h3>
             <dl className="mt-5 divide-y divide-graphite-foreground/15">
               {rateRows.map((row) => (
