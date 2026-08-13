@@ -75,7 +75,6 @@ function Index() {
     <>
       <Header />
       <main>
-        <h2 className="sr-only">Rádio Táxi Ligação — táxi na Mooca e em São Paulo</h2>
         <Hero />
         <TrustBar />
         <FareCalculator />
