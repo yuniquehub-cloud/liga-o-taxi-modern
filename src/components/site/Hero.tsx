@@ -1,6 +1,6 @@
 import { CalendarPlus, Calculator, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import taxiCutout from "@/assets/taxi-cutout.png.asset.json";
+import taxiCutout from "@/assets/taxi-cutout.png";
 import { company } from "@/config/company";
 
 export function Hero() {
@@ -107,7 +107,7 @@ export function Hero() {
               ))}
             </div>
             <img
-              src={taxiCutout.url}
+              src={taxiCutout}
               alt="Táxi branco da Rádio Táxi Ligação com luminoso amarelo de táxi"
               width={916}
               height={692}
