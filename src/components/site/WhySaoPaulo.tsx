@@ -69,7 +69,7 @@ export function WhySaoPaulo() {
             </a>
           </Button>
           {whatsappLink ? (
-            <Button variant="outlineLight" size="xl" asChild>
+            <Button variant="outlineDark" size="xl" asChild>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 Chamar no WhatsApp
               </a>
