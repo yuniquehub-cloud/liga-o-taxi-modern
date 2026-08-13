@@ -9,10 +9,14 @@ const items = [
 
 export function TrustBar() {
   return (
-    <section aria-label="Diferenciais" className="border-b border-border bg-background">
-      <div className="mx-auto grid max-w-6xl gap-5 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:py-16">
+    <section aria-label="Diferenciais" className="surface-glow relative overflow-hidden border-b border-border">
+      <div className="pointer-events-none absolute inset-0 grid-lines-light" aria-hidden="true" />
+      <div className="relative mx-auto grid max-w-6xl gap-5 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:py-16">
         {items.map(({ icon: Icon, title, text }) => (
-          <div key={title} className="card-lift rounded-2xl border border-border bg-card p-6">
+          <div
+            key={title}
+            className="card-lift rounded-2xl border border-border bg-card/85 p-6 shadow-soft backdrop-blur-sm"
+          >
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow">
               <Icon className="h-5 w-5 text-yellow-foreground" aria-hidden="true" />
             </span>
