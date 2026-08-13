@@ -18,12 +18,14 @@ export function Hero() {
             <span className="block text-graphite-foreground/60 text-[0.62em] font-semibold uppercase tracking-[0.18em]">
               Seu táxi na
             </span>
-            <span className="relative mt-1 block italic text-yellow [text-shadow:0_2px_24px_color-mix(in_oklab,var(--yellow)_35%,transparent)]">
-              Mooca
-              <span
-                className="absolute -bottom-1 left-0 h-[3px] w-[2.6em] rounded-full bg-yellow/50"
-                aria-hidden="true"
-              />
+            <span className="mt-1 block italic text-yellow [text-shadow:0_2px_24px_color-mix(in_oklab,var(--yellow)_35%,transparent)]">
+              <span className="relative inline-block">
+                Mooca
+                <span
+                  className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-yellow/50"
+                  aria-hidden="true"
+                />
+              </span>
             </span>
             <span className="block">
               e em <span className="italic font-black">São&nbsp;Paulo</span>,
