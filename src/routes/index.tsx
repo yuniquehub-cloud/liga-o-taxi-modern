@@ -3,6 +3,7 @@ import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/TrustBar";
 import { FareCalculator } from "@/components/site/FareCalculator";
+import { Booking } from "@/components/site/Booking";
 import { Services } from "@/components/site/Services";
 import { About } from "@/components/site/About";
 import { MapContactSection } from "@/components/site/MapContactSection";
@@ -78,6 +79,7 @@ function Index() {
         <Hero />
         <TrustBar />
         <FareCalculator />
+        <Booking />
         <Services />
         <About />
         <MapContactSection />

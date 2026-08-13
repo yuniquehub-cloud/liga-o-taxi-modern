@@ -13,19 +13,26 @@ export function Services() {
     <section id="servicos" className="border-b border-border bg-background">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">Nossos serviços</h2>
+          <p className="eyebrow text-yellow-foreground/70">Serviços</p>
+          <h2 className="mt-3 text-3xl font-extrabold text-foreground sm:text-4xl">Nossos serviços</h2>
           <p className="mt-3 text-lg text-muted-foreground">
             Atendimento de táxi para diferentes necessidades, sempre com contato direto com a central.
           </p>
         </div>
 
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, title, text }) => (
+          {services.map(({ icon: Icon, title, text }, index) => (
             <li
               key={title}
-              className="rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-soft"
+              className="card-lift group relative overflow-hidden rounded-2xl border border-border bg-card p-6"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow/20">
+              <span
+                className="absolute right-5 top-5 text-3xl font-extrabold text-muted-foreground/15"
+                aria-hidden="true"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow/25 transition-colors group-hover:bg-yellow">
                 <Icon className="h-5 w-5 text-yellow-foreground" aria-hidden="true" />
               </span>
               <h3 className="mt-4 text-lg font-extrabold text-foreground">{title}</h3>
