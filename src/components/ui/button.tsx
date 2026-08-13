@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "btn-premium inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -16,20 +16,20 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "bg-yellow text-yellow-foreground font-bold shadow-soft hover:bg-yellow-strong",
-        dark: "bg-graphite text-graphite-foreground font-semibold shadow-soft hover:bg-graphite/90",
+        cta: "bg-[image:var(--gradient-yellow)] text-yellow-foreground font-bold tracking-tight shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--yellow)_75%,transparent)] ring-1 ring-inset ring-[color-mix(in_oklab,var(--yellow-foreground)_18%,transparent)] hover:shadow-[0_18px_40px_-14px_color-mix(in_oklab,var(--yellow)_85%,transparent)]",
+        dark: "bg-graphite text-graphite-foreground font-semibold shadow-soft ring-1 ring-inset ring-white/10 hover:bg-graphite/90 hover:shadow-lift",
         outlineLight:
-          "border border-graphite-foreground/30 text-graphite-foreground font-semibold hover:bg-graphite-foreground/10",
+          "border border-graphite-foreground/25 bg-graphite-foreground/5 text-graphite-foreground font-semibold backdrop-blur-sm hover:border-yellow/70 hover:bg-graphite-foreground/10 hover:text-yellow",
         outlineDark:
-          "border-2 border-foreground/15 text-foreground font-semibold hover:border-foreground/40 hover:bg-secondary",
+          "border-2 border-foreground/12 bg-background text-foreground font-semibold hover:border-yellow hover:bg-yellow/10 hover:shadow-soft",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
-        xl: "h-13 rounded-xl px-7 text-base [&_svg]:size-5",
+        xl: "h-13 rounded-2xl px-7 text-base [&_svg]:size-5",
         icon: "h-9 w-9",
-        iconLg: "h-11 w-11 rounded-xl",
+        iconLg: "h-11 w-11 rounded-2xl",
       },
     },
     defaultVariants: {
