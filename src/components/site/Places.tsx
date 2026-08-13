@@ -1,0 +1,89 @@
+import museu from "@/assets/sp-museu-imigracao.jpg";
+import ibirapuera from "@/assets/sp-ibirapuera.jpg";
+import mercado from "@/assets/sp-mercado-municipal.jpg";
+import masp from "@/assets/sp-masp.jpg";
+import liberdade from "@/assets/sp-liberdade.jpg";
+import pacaembu from "@/assets/sp-pacaembu.jpg";
+
+const places = [
+  {
+    image: museu,
+    title: "Museu da Imigração",
+    text: "Fica no complexo histórico da antiga Hospedaria de Imigrantes do Brás.",
+  },
+  {
+    image: ibirapuera,
+    title: "Parque do Ibirapuera",
+    text: "Ideal para um passeio ao ar livre, andar de bicicleta ou fazer um piquenique.",
+  },
+  {
+    image: mercado,
+    title: "Mercado Municipal Paulistano",
+    text: "Visita obrigatória: um dos pontos gourmet mais tradicionais da cidade.",
+  },
+  {
+    image: masp,
+    title: "MASP",
+    text: "Museu de Arte de São Paulo, o primeiro museu moderno do Brasil.",
+  },
+  {
+    image: liberdade,
+    title: "Bairro da Liberdade",
+    text: "Maior reduto da comunidade japonesa de SP, referência fora do Japão.",
+  },
+  {
+    image: pacaembu,
+    title: "Estádio do Pacaembu",
+    text: "Arquitetura histórica do Estádio Municipal Paulo Machado de Carvalho.",
+  },
+];
+
+export function Places() {
+  return (
+    <section
+      id="lugares"
+      aria-labelledby="lugares-titulo"
+      className="surface-glow relative overflow-hidden border-b border-border"
+    >
+      <div className="pointer-events-none absolute inset-0 grid-lines-light" aria-hidden="true" />
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+        <div className="max-w-2xl">
+          <p className="eyebrow text-yellow-foreground/70">Turismo</p>
+          <h2 id="lugares-titulo" className="mt-3 text-3xl font-extrabold text-foreground sm:text-4xl">
+            Lugares para conhecer em São Paulo
+          </h2>
+          <p className="mt-3 text-lg text-muted-foreground">
+            Leve seu roteiro pela cidade com um táxi que conhece as rotas.
+          </p>
+        </div>
+
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {places.map((p) => (
+            <li
+              key={p.title}
+              className="card-lift group relative overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
+            >
+              <img
+                src={p.image}
+                alt={`${p.title} em São Paulo`}
+                width={1024}
+                height={768}
+                loading="lazy"
+                decoding="async"
+                className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,oklch(0.15_0.01_70/92%),transparent)] p-5 pt-14">
+                <h3 className="text-base font-extrabold text-graphite-foreground">{p.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-graphite-foreground/75">{p.text}</p>
+              </div>
+              <span
+                className="absolute right-4 top-4 h-1.5 w-8 rounded-full bg-yellow opacity-0 transition-opacity group-hover:opacity-100"
+                aria-hidden="true"
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}

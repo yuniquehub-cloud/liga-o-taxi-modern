@@ -2,10 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/TrustBar";
+import { Stats } from "@/components/site/Stats";
 import { FareCalculator } from "@/components/site/FareCalculator";
 import { Booking } from "@/components/site/Booking";
 import { Services } from "@/components/site/Services";
 import { About } from "@/components/site/About";
+import { WhySaoPaulo } from "@/components/site/WhySaoPaulo";
+import { Places } from "@/components/site/Places";
 import { MapContactSection } from "@/components/site/MapContactSection";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
@@ -78,10 +81,13 @@ function Index() {
       <main>
         <Hero />
         <TrustBar />
+        <Stats />
         <FareCalculator />
         <Booking />
         <Services />
         <About />
+        <WhySaoPaulo />
+        <Places />
         <MapContactSection />
         <FinalCTA />
       </main>
