@@ -1,6 +1,6 @@
 import { CalendarPlus, Calculator, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import taxiFrota from "@/assets/taxi-frota.jpg.asset.json";
+import taxiCutout from "@/assets/taxi-cutout.png.asset.json";
 import { company } from "@/config/company";
 
 export function Hero() {
@@ -66,20 +66,47 @@ export function Hero() {
         </div>
 
         <div className="relative animate-fade-up">
-          <div className="absolute -inset-3 rounded-[2rem] bg-yellow/10 blur-2xl" aria-hidden="true" />
-          <figure className="relative overflow-hidden rounded-[1.75rem] border border-graphite-foreground/15 shadow-lift">
-            <div className="checker-light" aria-hidden="true" />
+          <div className="relative isolate flex min-h-[19rem] items-center justify-center px-2 sm:min-h-[24rem]">
+            <div
+              className="animate-halo-pulse absolute left-1/2 top-1/2 -z-10 h-[15rem] w-[15rem] -translate-x-1/2 -translate-y-[58%] rounded-full bg-yellow/25 blur-[70px] sm:h-[20rem] sm:w-[20rem]"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute left-1/2 top-1/2 -z-10 h-[15rem] w-[15rem] -translate-x-1/2 -translate-y-[58%] rounded-full border border-graphite-foreground/10 sm:h-[21rem] sm:w-[21rem]"
+              aria-hidden="true"
+            />
+            <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+              {[
+                { top: "32%", width: "42%", delay: "0s" },
+                { top: "46%", width: "58%", delay: "0.5s" },
+                { top: "60%", width: "34%", delay: "1.1s" },
+              ].map((line) => (
+                <span
+                  key={line.top}
+                  className="animate-speed-line absolute right-0 h-px origin-right bg-[linear-gradient(90deg,transparent,color-mix(in_oklab,var(--yellow)_70%,transparent))]"
+                  style={{ top: line.top, width: line.width, animationDelay: line.delay }}
+                />
+              ))}
+            </div>
             <img
-              src={taxiFrota.url}
-              alt="Táxi branco da Rádio Táxi Ligação com luminoso de táxi, estacionado em São Paulo"
-              width={1024}
-              height={1024}
+              src={taxiCutout.url}
+              alt="Táxi branco da Rádio Táxi Ligação com luminoso amarelo de táxi"
+              width={916}
+              height={692}
               loading="eager"
               decoding="async"
-              className="aspect-[4/3] w-full object-cover object-center"
+              className="animate-taxi-float relative w-full max-w-[30rem] drop-shadow-[0_28px_40px_oklch(0_0_0/45%)]"
             />
-          </figure>
-          <div className="mt-5 flex items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur sm:absolute sm:-bottom-8 sm:left-6 sm:mt-0 sm:max-w-[17rem]">
+            <div
+              className="animate-shadow-breathe absolute bottom-8 left-1/2 h-6 w-[68%] -translate-x-1/2 rounded-[50%] bg-black/60 blur-xl"
+              aria-hidden="true"
+            />
+            <div className="absolute bottom-3 left-0 right-0 overflow-hidden" aria-hidden="true">
+              <div className="road-dash h-[3px] w-full opacity-70" />
+            </div>
+          </div>
+
+          <div className="mt-2 flex items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur sm:absolute sm:-bottom-4 sm:left-2 sm:mt-0 sm:max-w-[17rem]">
             <ShieldCheck className="h-6 w-6 shrink-0 text-yellow" aria-hidden="true" />
             <p className="text-sm font-semibold leading-snug">
               Táxi regulamentado, motorista identificado e taxímetro oficial.
