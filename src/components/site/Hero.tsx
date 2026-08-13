@@ -66,7 +66,7 @@ export function Hero() {
         </div>
 
         <div className="relative animate-fade-up">
-          <div className="relative isolate flex min-h-[19rem] items-center justify-center px-2 sm:min-h-[24rem]">
+          <div className="relative isolate flex min-h-[17rem] items-center justify-center px-2 pb-10 sm:min-h-[21rem]">
             <div
               className="animate-halo-pulse absolute left-1/2 top-1/2 -z-10 h-[15rem] w-[15rem] -translate-x-1/2 -translate-y-[58%] rounded-full bg-yellow/25 blur-[70px] sm:h-[20rem] sm:w-[20rem]"
               aria-hidden="true"
@@ -95,7 +95,7 @@ export function Hero() {
               height={692}
               loading="eager"
               decoding="async"
-              className="animate-taxi-float relative w-full max-w-[30rem] drop-shadow-[0_28px_40px_oklch(0_0_0/45%)]"
+              className="animate-taxi-float relative w-full max-w-[26rem] drop-shadow-[0_28px_40px_oklch(0_0_0/45%)]"
             />
             <div
               className="animate-shadow-breathe absolute bottom-8 left-1/2 h-6 w-[68%] -translate-x-1/2 rounded-[50%] bg-black/60 blur-xl"
@@ -106,7 +106,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="mx-auto mt-4 flex max-w-[22rem] items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur">
+          <div className="mx-auto mt-6 flex max-w-[22rem] items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur">
             <ShieldCheck className="h-6 w-6 shrink-0 text-yellow" aria-hidden="true" />
             <p className="text-sm font-semibold leading-snug">
               Táxi regulamentado, motorista identificado e taxímetro oficial.
