@@ -14,8 +14,24 @@ export function Hero() {
             <MapPin className="h-3.5 w-3.5 text-yellow" aria-hidden="true" />
             São Paulo · Mooca
           </p>
-          <h1 className="mt-6 text-[2.6rem] font-extrabold leading-[1.03] sm:text-5xl lg:text-[3.7rem]">
-            Seu táxi na Mooca e em São Paulo, com segurança e praticidade.
+          <h1 className="mt-6 text-[2.6rem] font-extrabold leading-[1.03] tracking-[-0.02em] sm:text-5xl lg:text-[3.7rem]">
+            <span className="block text-graphite-foreground/60 text-[0.62em] font-semibold uppercase tracking-[0.18em]">
+              Seu táxi na
+            </span>
+            <span className="relative mt-1 block italic text-yellow [text-shadow:0_2px_24px_color-mix(in_oklab,var(--yellow)_35%,transparent)]">
+              Mooca
+              <span
+                className="absolute -bottom-1 left-0 h-[3px] w-[2.6em] rounded-full bg-yellow/50"
+                aria-hidden="true"
+              />
+            </span>
+            <span className="block">
+              e em <span className="italic font-black">São&nbsp;Paulo</span>,
+            </span>
+            <span className="block text-graphite-foreground/80">
+              com <span className="not-italic text-graphite-foreground">segurança</span>{" "}
+              <span className="italic text-yellow/90">e praticidade.</span>
+            </span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-graphite-foreground/75">
             Conte com a {company.companyName} para um atendimento rápido, profissional e confiável.
