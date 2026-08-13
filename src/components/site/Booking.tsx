@@ -97,6 +97,7 @@ export function Booking() {
   return (
     <section id="agendar" className="relative overflow-hidden surface-dark">
       <div className="absolute inset-0 grid-lines opacity-70" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 dark-glow" aria-hidden="true" />
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:py-24">
         <div>
           <p className="eyebrow text-yellow">
@@ -138,7 +139,7 @@ export function Booking() {
 
         <form
           onSubmit={submit}
-          className="rounded-3xl bg-card p-6 text-card-foreground shadow-lift sm:p-8"
+          className="rounded-3xl border border-border bg-card p-6 text-card-foreground shadow-lift sm:p-8"
           noValidate
         >
           <div className="grid gap-5 sm:grid-cols-2">
