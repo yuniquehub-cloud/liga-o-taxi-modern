@@ -10,8 +10,9 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicos" className="border-b border-border bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+    <section id="servicos" className="surface-soft relative overflow-hidden border-b border-border">
+      <div className="pointer-events-none absolute inset-0 grid-lines-light" aria-hidden="true" />
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
         <div className="max-w-2xl">
           <p className="eyebrow text-yellow-foreground/70">Serviços</p>
           <h2 className="mt-3 text-3xl font-extrabold text-foreground sm:text-4xl">Nossos serviços</h2>
@@ -24,7 +25,7 @@ export function Services() {
           {services.map(({ icon: Icon, title, text }, index) => (
             <li
               key={title}
-              className="card-lift group relative overflow-hidden rounded-2xl border border-border bg-card p-6"
+              className="card-lift group relative overflow-hidden rounded-2xl border border-border bg-card/90 p-6 shadow-soft backdrop-blur-sm"
             >
               <span
                 className="absolute right-5 top-5 text-3xl font-extrabold text-muted-foreground/15"
