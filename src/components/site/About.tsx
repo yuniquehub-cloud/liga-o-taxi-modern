@@ -2,8 +2,9 @@ import { company } from "@/config/company";
 
 export function About() {
   return (
-    <section id="sobre" className="border-b border-border bg-background">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:py-20">
+    <section id="sobre" className="surface-glow relative overflow-hidden border-b border-border">
+      <div className="pointer-events-none absolute inset-0 grid-lines-light" aria-hidden="true" />
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:py-20">
         <div>
           <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
             Confiança para te levar ao destino

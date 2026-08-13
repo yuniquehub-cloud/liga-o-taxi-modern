@@ -238,6 +238,37 @@
   background-size: 72px 72px;
 }
 
+/* Linhas de grade discretas para seções claras. */
+@utility grid-lines-light {
+  background-image:
+    linear-gradient(to right, oklch(0.2 0.01 70 / 5%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.2 0.01 70 / 5%) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Fundo claro com brilho suave amarelo. */
+@utility surface-glow {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(70rem 32rem at 12% -10%, color-mix(in oklab, var(--yellow) 22%, transparent), transparent 60%),
+    radial-gradient(52rem 28rem at 100% 100%, color-mix(in oklab, var(--yellow) 12%, transparent), transparent 65%);
+}
+
+/* Fundo claro alternativo, mais neutro e frio. */
+@utility surface-soft {
+  background-color: var(--secondary);
+  background-image:
+    radial-gradient(48rem 26rem at 85% -20%, color-mix(in oklab, var(--yellow) 18%, transparent), transparent 62%),
+    linear-gradient(180deg, color-mix(in oklab, var(--background) 85%, transparent), transparent 45%);
+}
+
+/* Brilho quente para seções escuras. */
+@utility dark-glow {
+  background-image:
+    radial-gradient(46rem 24rem at 15% 0%, color-mix(in oklab, var(--yellow) 16%, transparent), transparent 60%),
+    radial-gradient(40rem 24rem at 95% 90%, color-mix(in oklab, var(--yellow) 10%, transparent), transparent 65%);
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
