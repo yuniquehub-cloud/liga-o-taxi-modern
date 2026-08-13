@@ -1,7 +1,7 @@
 import { company } from "@/config/company";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoAsset from "@/assets/logo.png";
 
-/** Logo oficial. Troque src/assets/logo.png.asset.json para atualizar a marca. */
+/** Logo oficial. Troque src/assets/logo.png para atualizar a marca. */
 export function Logo({
   tone = "dark",
   className = "h-10",
@@ -12,7 +12,7 @@ export function Logo({
   return (
     <span className="flex items-center">
       <img
-        src={logoAsset.url}
+        src={logoAsset}
         alt={`${company.companyName} - táxi na Mooca, São Paulo`}
         loading="eager"
         decoding="async"
