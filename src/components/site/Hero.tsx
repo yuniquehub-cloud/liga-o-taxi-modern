@@ -106,7 +106,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="mt-2 flex items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur sm:absolute sm:-bottom-4 sm:left-2 sm:mt-0 sm:max-w-[17rem]">
+          <div className="mx-auto mt-4 flex max-w-[22rem] items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur">
             <ShieldCheck className="h-6 w-6 shrink-0 text-yellow" aria-hidden="true" />
             <p className="text-sm font-semibold leading-snug">
               Táxi regulamentado, motorista identificado e taxímetro oficial.
