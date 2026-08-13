@@ -31,7 +31,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#inicio" aria-label={`${company.companyName} — início`}>
-          <Logo />
+          <Logo className="h-9 sm:h-11" />
         </a>
 
         <nav aria-label="Navegação principal" className="hidden items-center gap-7 lg:flex">
