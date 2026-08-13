@@ -1,4 +1,4 @@
-import { Briefcase, CalendarClock, Car, MapPin, Route } from "lucide-react";
+import { Briefcase, CalendarClock, Car, MapPin, Package, Plane, Route, Landmark } from "lucide-react";
 
 const services = [
   { icon: Car, title: "Corridas urbanas", text: "Deslocamentos do dia a dia dentro da cidade de São Paulo." },
@@ -6,6 +6,9 @@ const services = [
   { icon: CalendarClock, title: "Corridas agendadas", text: "Combine horário com a central e programe seu trajeto." },
   { icon: Briefcase, title: "Atendimento empresarial", text: "Suporte a deslocamentos de equipes e visitantes." },
   { icon: Route, title: "Deslocamentos com praticidade", text: "Contato direto com a central, sem complicação." },
+  { icon: Plane, title: "Aeroporto", text: "Levamos você ao aeroporto com rapidez e segurança." },
+  { icon: Landmark, title: "Turismo", text: "Conhecemos os pontos turísticos de São Paulo e te levamos lá." },
+  { icon: Package, title: "Entregas", text: "Entregamos seus pacotes — até 100cm de comprimento x 50cm de altura." },
 ];
 
 export function Services() {
