@@ -9,13 +9,15 @@ const items = [
 
 export function TrustBar() {
   return (
-    <section aria-label="Diferenciais" className="surface-dark">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:py-14">
+    <section aria-label="Diferenciais" className="border-b border-border bg-background">
+      <div className="mx-auto grid max-w-6xl gap-5 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:py-16">
         {items.map(({ icon: Icon, title, text }) => (
-          <div key={title}>
-            <Icon className="h-6 w-6 text-yellow" aria-hidden="true" />
-            <h3 className="mt-3 text-base font-extrabold">{title}</h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-graphite-foreground/70">{text}</p>
+          <div key={title} className="card-lift rounded-2xl border border-border bg-card p-6">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow">
+              <Icon className="h-5 w-5 text-yellow-foreground" aria-hidden="true" />
+            </span>
+            <h3 className="mt-4 text-base font-extrabold text-foreground">{title}</h3>
+            <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{text}</p>
           </div>
         ))}
       </div>
