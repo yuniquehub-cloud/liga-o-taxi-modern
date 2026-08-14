@@ -18,6 +18,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         cta: "bg-[image:var(--gradient-yellow)] text-yellow-foreground font-bold tracking-tight shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--yellow)_75%,transparent)] ring-1 ring-inset ring-[color-mix(in_oklab,var(--yellow-foreground)_18%,transparent)] hover:shadow-[0_18px_40px_-14px_color-mix(in_oklab,var(--yellow)_85%,transparent)]",
         dark: "bg-graphite text-graphite-foreground font-semibold shadow-soft ring-1 ring-inset ring-white/10 hover:bg-graphite/90 hover:shadow-lift",
+        call: "bg-[image:var(--gradient-green)] text-green-foreground font-bold tracking-tight shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--green)_75%,transparent)] ring-1 ring-inset ring-white/20 hover:shadow-[0_18px_40px_-14px_color-mix(in_oklab,var(--green)_85%,transparent)]",
         outlineLight:
           "border border-graphite-foreground/25 bg-graphite-foreground/5 text-graphite-foreground font-semibold backdrop-blur-sm hover:border-yellow/70 hover:bg-graphite-foreground/10 hover:text-yellow",
         outlineDark:
