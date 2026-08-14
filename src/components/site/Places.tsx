@@ -77,10 +77,10 @@ export function Places() {
       className="surface-glow relative overflow-hidden border-b border-border"
     >
       <div className="pointer-events-none absolute inset-0 grid-lines-light" aria-hidden="true" />
-      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-24">
         <div className="max-w-2xl">
           <p className="eyebrow text-yellow-foreground/70">Turismo</p>
-          <h2 id="lugares-titulo" className="mt-3 text-3xl font-extrabold text-foreground sm:text-4xl">
+          <h2 id="lugares-titulo" className="mt-3 text-4xl font-extrabold text-foreground sm:text-5xl">
             Lugares para conhecer em São Paulo
           </h2>
           <p className="mt-3 text-lg text-muted-foreground">
@@ -91,7 +91,7 @@ export function Places() {
         <Carousel opts={{ align: "start", loop: true }} className="mt-10">
           <CarouselContent className="-ml-5">
             {places.map((p) => (
-              <CarouselItem key={p.title} className="pl-5 sm:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={p.title} className="pl-5 sm:basis-4/5 lg:basis-1/2">
                 <article className="card-lift group relative h-full overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
                   <img
                     src={p.image}
@@ -100,11 +100,11 @@ export function Places() {
                     height={768}
                     loading="lazy"
                     decoding="async"
-                    className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-[20rem] w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-[26rem]"
                   />
-                  <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,oklch(0.12_0.01_70/88%)_0%,oklch(0.12_0.01_70/55%)_55%,transparent_100%)] p-5 pt-10">
-                    <h3 className="text-base font-extrabold text-graphite-foreground">{p.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-graphite-foreground/75">{p.text}</p>
+                  <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,oklch(0.12_0.01_70/90%)_0%,oklch(0.12_0.01_70/55%)_60%,transparent_100%)] p-6 pt-14">
+                    <h3 className="text-xl font-extrabold text-graphite-foreground sm:text-2xl">{p.title}</h3>
+                    <p className="mt-2 max-w-md text-base leading-relaxed text-graphite-foreground/80">{p.text}</p>
                   </div>
                   <span
                     className="absolute right-4 top-4 h-1.5 w-8 rounded-full bg-yellow opacity-0 transition-opacity group-hover:opacity-100"
