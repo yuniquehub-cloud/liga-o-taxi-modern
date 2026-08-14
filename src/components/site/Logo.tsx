@@ -16,7 +16,9 @@ export function Logo({
         alt={`${company.companyName} - táxi na Mooca, São Paulo`}
         loading="eager"
         decoding="async"
-        className={`w-auto ${className} ${tone === "light" ? "invert" : ""}`}
+        className={`w-auto ${className} ${
+          tone === "light" ? "[filter:brightness(0)_invert(1)]" : ""
+        }`}
       />
     </span>
   );
