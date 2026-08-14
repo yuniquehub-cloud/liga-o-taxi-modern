@@ -6,8 +6,21 @@ import { company, whatsappLink } from "@/config/company";
 export function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden surface-dark">
+      <img
+        src={fleetTaxis}
+        alt="Fila de táxis brancos da Rádio Táxi Ligação estacionados em rua de São Paulo"
+        width={1400}
+        height={787}
+        loading="eager"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div
+        className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.16_0.01_70/94%)_0%,oklch(0.16_0.01_70/85%)_45%,oklch(0.16_0.01_70/55%)_100%)]"
+        aria-hidden="true"
+      />
       <div className="checker absolute inset-x-0 top-0" aria-hidden="true" />
-      <div className="absolute inset-0 grid-lines opacity-60" aria-hidden="true" />
+      <div className="absolute inset-0 grid-lines opacity-30" aria-hidden="true" />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pb-16 pt-16 sm:px-6 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:pb-24">
         <div className="animate-fade-up">
           <p className="eyebrow rounded-full border border-graphite-foreground/20 px-3.5 py-1.5 text-graphite-foreground/80">
@@ -97,28 +110,7 @@ export function Hero() {
         </div>
 
         <div className="relative animate-fade-up">
-          <div className="relative isolate overflow-hidden rounded-3xl border border-graphite-foreground/15 shadow-[0_30px_60px_oklch(0_0_0/45%)]">
-            <div
-              className="animate-halo-pulse absolute -left-10 -top-10 -z-10 h-[18rem] w-[18rem] rounded-full bg-yellow/25 blur-[70px]"
-              aria-hidden="true"
-            />
-            <img
-              src={fleetTaxis}
-              alt="Fila de táxis brancos da Rádio Táxi Ligação estacionados em rua de São Paulo"
-              width={1400}
-              height={787}
-              loading="eager"
-              decoding="async"
-              className="h-[17rem] w-full object-cover sm:h-[22rem]"
-            />
-            <div
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,oklch(0_0_0/55%)_100%)]"
-              aria-hidden="true"
-            />
-            <div className="checker absolute inset-x-0 bottom-0" aria-hidden="true" />
-          </div>
-
-          <div className="mx-auto mt-6 flex max-w-[22rem] items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur">
+          <div className="ml-auto flex max-w-[22rem] items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur">
             <ShieldCheck className="h-6 w-6 shrink-0 text-yellow" aria-hidden="true" />
             <p className="text-sm font-semibold leading-snug">
               Táxi regulamentado, motorista identificado e taxímetro oficial.
