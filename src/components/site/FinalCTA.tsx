@@ -11,7 +11,7 @@ export function FinalCTA() {
         </h2>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Button variant="cta" size="xl" asChild>
+          <Button variant="call" size="xl" asChild>
             <a href={`tel:${company.phoneTel}`}>
               <Phone aria-hidden="true" />
               Ligar Agora
