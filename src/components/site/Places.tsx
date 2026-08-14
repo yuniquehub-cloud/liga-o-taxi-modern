@@ -8,6 +8,8 @@ import transatlantico from "@/assets/sp-transatlantico.jpg";
 import guaruja from "@/assets/sp-guaruja-praia.jpg";
 import congonhas from "@/assets/sp-congonhas.jpg";
 import gru from "@/assets/sp-gru.jpg";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -70,6 +72,10 @@ const places = [
 ];
 
 export function Places() {
+  const autoplay = useRef(
+    Autoplay({ delay: 3000, stopOnMouseEnter: true, stopOnInteraction: false }),
+  );
+
   return (
     <section
       id="lugares"
@@ -88,7 +94,7 @@ export function Places() {
           </p>
         </div>
 
-        <Carousel opts={{ align: "start", loop: true }} className="mt-10">
+        <Carousel opts={{ align: "start", loop: true }} plugins={[autoplay.current]} className="mt-10">
           <CarouselContent className="-ml-5">
             {places.map((p) => (
               <CarouselItem key={p.title} className="pl-5 sm:basis-4/5 lg:basis-1/2">
