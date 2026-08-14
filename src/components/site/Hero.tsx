@@ -1,7 +1,7 @@
 import { CalendarPlus, Calculator, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import taxiCutout from "@/assets/taxi-cutout.png";
-import { company } from "@/config/company";
+import { company, whatsappLink } from "@/config/company";
 
 export function Hero() {
   return (
@@ -70,6 +70,19 @@ export function Hero() {
                 className="mt-1 block text-xl font-extrabold text-yellow"
               >
                 {company.phone}
+              </a>
+            </p>
+            <p className="text-sm font-semibold">
+              <span className="block text-xs font-bold uppercase tracking-wide text-graphite-foreground/55">
+                WhatsApp
+              </span>
+              <a
+                href={whatsappLink ?? `tel:${company.phoneTel}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 block text-xl font-extrabold text-green"
+              >
+                {company.whatsappDisplay}
               </a>
             </p>
             {company.businessHours.map((h) => (
