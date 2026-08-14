@@ -133,7 +133,7 @@ export function FareCalculator() {
               </p>
             )}
 
-            <Button type="submit" variant="cta" size="xl" className="mt-6 w-full">
+            <Button type="submit" variant="call" size="xl" className="mt-6 w-full">
               <Calculator aria-hidden="true" />
               Calcular Estimativa
             </Button>
