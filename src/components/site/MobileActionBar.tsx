@@ -15,7 +15,7 @@ export function MobileActionBar() {
         href={whatsappLink ?? `tel:${company.phoneTel}`}
         target={whatsappLink ? "_blank" : undefined}
         rel={whatsappLink ? "noopener noreferrer" : undefined}
-        className="flex min-h-14 items-center justify-center gap-2 bg-graphite text-sm font-extrabold text-graphite-foreground"
+        className="flex min-h-14 items-center justify-center gap-2 bg-green-strong text-sm font-extrabold text-green-foreground"
       >
         <MessageCircle className="h-4 w-4" aria-hidden="true" />
         {whatsappLink ? "WhatsApp" : "Chamar Táxi"}
