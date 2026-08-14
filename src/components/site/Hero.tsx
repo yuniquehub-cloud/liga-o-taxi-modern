@@ -108,15 +108,6 @@ export function Hero() {
             ))}
           </div>
         </div>
-
-        <div className="relative animate-fade-up">
-          <div className="ml-auto flex max-w-[22rem] items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur">
-            <ShieldCheck className="h-6 w-6 shrink-0 text-yellow" aria-hidden="true" />
-            <p className="text-sm font-semibold leading-snug">
-              Táxi regulamentado, motorista identificado e taxímetro oficial.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
