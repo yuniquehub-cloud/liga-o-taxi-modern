@@ -15,7 +15,7 @@ export function Footer() {
     <footer className="bg-background pb-24 md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div>
-          <Logo className="h-11" />
+          <Logo className="h-16" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             O melhor serviço de táxi na Mooca em São Paulo, com atendimento profissional.
           </p>
