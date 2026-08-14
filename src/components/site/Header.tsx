@@ -55,6 +55,15 @@ export function Header() {
             <Phone className="h-4 w-4 text-yellow-strong" aria-hidden="true" />
             {company.phone}
           </a>
+          <a
+            href={whatsappLink ?? `tel:${company.phoneTel}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-2 text-sm font-bold text-foreground lg:flex"
+          >
+            <MessageCircle className="h-4 w-4 text-green" aria-hidden="true" />
+            {company.whatsappDisplay}
+          </a>
           <Button variant="cta" size="lg" asChild>
             <a href={whatsappLink ?? `tel:${company.phoneTel}`} aria-label="Chamar táxi">
               Chamar Táxi
