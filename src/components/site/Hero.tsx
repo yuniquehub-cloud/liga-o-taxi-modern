@@ -1,7 +1,7 @@
 import { CalendarPlus, Calculator, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import taxiCutout from "@/assets/taxi-cutout.png";
-import { company } from "@/config/company";
+import { company, whatsappLink } from "@/config/company";
 
 export function Hero() {
   return (
@@ -80,7 +80,7 @@ export function Hero() {
                 href={whatsappLink ?? `tel:${company.phoneTel}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 block text-xl font-extrabold text-[hsl(var(--green))]"
+                className="mt-1 block text-xl font-extrabold text-green"
               >
                 {company.whatsappDisplay}
               </a>
