@@ -105,7 +105,8 @@ export function Booking() {
             Agendamento
           </p>
           <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
-            Agende sua corrida e salve no Google Agenda
+            <span className="block italic text-yellow">Você prefere agendar um táxi?</span>
+            <span className="mt-2 block">Agende sua corrida e salve no Google Agenda</span>
           </h2>
           <p className="mt-4 max-w-md text-lg leading-relaxed text-graphite-foreground/75">
             Preencha os dados da corrida, salve o compromisso direto no seu Google Agenda e confirme
