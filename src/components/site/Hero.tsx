@@ -1,4 +1,4 @@
-import { CalendarPlus, Calculator, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { CalendarPlus, Calculator, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import fleetTaxis from "@/assets/fleet-taxis.jpg";
 import { company, whatsappLink } from "@/config/company";
@@ -106,15 +106,6 @@ export function Hero() {
                 <span className="mt-1 block text-base font-extrabold">{h.value}</span>
               </p>
             ))}
-          </div>
-        </div>
-
-        <div className="relative animate-fade-up">
-          <div className="ml-auto flex max-w-[22rem] items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur">
-            <ShieldCheck className="h-6 w-6 shrink-0 text-yellow" aria-hidden="true" />
-            <p className="text-sm font-semibold leading-snug">
-              Táxi regulamentado, motorista identificado e taxímetro oficial.
-            </p>
           </div>
         </div>
       </div>
