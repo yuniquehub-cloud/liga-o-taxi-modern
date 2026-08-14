@@ -68,6 +68,9 @@
   --color-yellow: var(--yellow);
   --color-yellow-strong: var(--yellow-strong);
   --color-yellow-foreground: var(--yellow-foreground);
+  --color-green: var(--green);
+  --color-green-strong: var(--green-strong);
+  --color-green-foreground: var(--green-foreground);
   --shadow-soft: var(--shadow-soft);
   --shadow-lift: var(--shadow-lift);
 }
@@ -98,12 +101,16 @@
   --yellow: oklch(0.86 0.18 92);
   --yellow-strong: oklch(0.8 0.175 84);
   --yellow-foreground: oklch(0.19 0.01 70);
+  --green: oklch(0.68 0.16 152);
+  --green-strong: oklch(0.6 0.15 152);
+  --green-foreground: oklch(0.99 0.005 150);
   --gradient-dark: linear-gradient(
     160deg,
     oklch(0.19 0.005 60) 0%,
     oklch(0.26 0.008 70) 100%
   );
   --gradient-yellow: linear-gradient(100deg, var(--yellow) 0%, var(--yellow-strong) 100%);
+  --gradient-green: linear-gradient(100deg, var(--green) 0%, var(--green-strong) 100%);
   --shadow-soft: 0 1px 2px oklch(0.19 0.005 60 / 6%), 0 12px 32px -16px oklch(0.19 0.005 60 / 18%);
   --shadow-lift: 0 2px 4px oklch(0.19 0.005 60 / 6%), 0 24px 48px -20px oklch(0.19 0.005 60 / 26%);
   --chart-1: oklch(0.646 0.222 41.116);
