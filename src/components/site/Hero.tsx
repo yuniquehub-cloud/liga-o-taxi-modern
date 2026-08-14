@@ -1,6 +1,6 @@
 import { CalendarPlus, Calculator, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import taxiCutout from "@/assets/taxi-cutout.png";
+import fleetTaxis from "@/assets/fleet-taxis.jpg";
 import { company, whatsappLink } from "@/config/company";
 
 export function Hero() {
@@ -97,44 +97,25 @@ export function Hero() {
         </div>
 
         <div className="relative animate-fade-up">
-          <div className="relative isolate flex min-h-[17rem] items-center justify-center px-2 pb-10 sm:min-h-[21rem]">
+          <div className="relative isolate overflow-hidden rounded-3xl border border-graphite-foreground/15 shadow-[0_30px_60px_oklch(0_0_0/45%)]">
             <div
-              className="animate-halo-pulse absolute left-1/2 top-1/2 -z-10 h-[15rem] w-[15rem] -translate-x-1/2 -translate-y-[58%] rounded-full bg-yellow/25 blur-[70px] sm:h-[20rem] sm:w-[20rem]"
+              className="animate-halo-pulse absolute -left-10 -top-10 -z-10 h-[18rem] w-[18rem] rounded-full bg-yellow/25 blur-[70px]"
               aria-hidden="true"
             />
-            <div
-              className="absolute left-1/2 top-1/2 -z-10 h-[15rem] w-[15rem] -translate-x-1/2 -translate-y-[58%] rounded-full border border-graphite-foreground/10 sm:h-[21rem] sm:w-[21rem]"
-              aria-hidden="true"
-            />
-            <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
-              {[
-                { top: "32%", width: "42%", delay: "0s" },
-                { top: "46%", width: "58%", delay: "0.5s" },
-                { top: "60%", width: "34%", delay: "1.1s" },
-              ].map((line) => (
-                <span
-                  key={line.top}
-                  className="animate-speed-line absolute right-0 h-px origin-right bg-[linear-gradient(90deg,transparent,color-mix(in_oklab,var(--yellow)_70%,transparent))]"
-                  style={{ top: line.top, width: line.width, animationDelay: line.delay }}
-                />
-              ))}
-            </div>
             <img
-              src={taxiCutout}
-              alt="Táxi branco da Rádio Táxi Ligação com luminoso amarelo de táxi"
-              width={916}
-              height={692}
+              src={fleetTaxis}
+              alt="Fila de táxis brancos da Rádio Táxi Ligação estacionados em rua de São Paulo"
+              width={1400}
+              height={787}
               loading="eager"
               decoding="async"
-              className="animate-taxi-float relative w-full max-w-[26rem] drop-shadow-[0_28px_40px_oklch(0_0_0/45%)]"
+              className="h-[17rem] w-full object-cover sm:h-[22rem]"
             />
             <div
-              className="animate-shadow-breathe absolute bottom-8 left-1/2 h-6 w-[68%] -translate-x-1/2 rounded-[50%] bg-black/60 blur-xl"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,oklch(0_0_0/55%)_100%)]"
               aria-hidden="true"
             />
-            <div className="absolute bottom-3 left-0 right-0 overflow-hidden" aria-hidden="true">
-              <div className="road-dash h-[3px] w-full opacity-70" />
-            </div>
+            <div className="checker absolute inset-x-0 bottom-0" aria-hidden="true" />
           </div>
 
           <div className="mx-auto mt-6 flex max-w-[22rem] items-center gap-3 rounded-2xl border border-graphite-foreground/15 bg-graphite/60 p-4 backdrop-blur">
