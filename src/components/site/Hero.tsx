@@ -72,6 +72,19 @@ export function Hero() {
                 {company.phone}
               </a>
             </p>
+            <p className="text-sm font-semibold">
+              <span className="block text-xs font-bold uppercase tracking-wide text-graphite-foreground/55">
+                WhatsApp
+              </span>
+              <a
+                href={whatsappLink ?? `tel:${company.phoneTel}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 block text-xl font-extrabold text-[hsl(var(--green))]"
+              >
+                {company.whatsappDisplay}
+              </a>
+            </p>
             {company.businessHours.map((h) => (
               <p key={h.label} className="text-sm font-semibold">
                 <span className="block text-xs font-bold uppercase tracking-wide text-graphite-foreground/55">
