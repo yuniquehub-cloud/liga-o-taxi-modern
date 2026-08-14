@@ -63,7 +63,7 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <Button variant="cta" size="icon" asChild aria-label="Ligar agora">
+          <Button variant="call" size="icon" asChild aria-label="Ligar agora">
             <a href={`tel:${company.phoneTel}`}>
               <Phone aria-hidden="true" />
             </a>
