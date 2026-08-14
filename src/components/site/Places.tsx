@@ -70,9 +70,9 @@ export function Places() {
                 height={768}
                 loading="lazy"
                 decoding="async"
-                className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,oklch(0.15_0.01_70/92%),transparent)] p-5 pt-14">
+              <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,oklch(0.12_0.01_70/88%)_0%,oklch(0.12_0.01_70/55%)_55%,transparent_100%)] p-5 pt-10">
                 <h3 className="text-base font-extrabold text-graphite-foreground">{p.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-graphite-foreground/75">{p.text}</p>
               </div>
