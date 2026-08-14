@@ -217,7 +217,7 @@ export function Booking() {
           )}
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button type="submit" variant="cta" size="xl" className="sm:flex-1">
+            <Button type="submit" variant="call" size="xl" className="sm:flex-1">
               <CalendarPlus aria-hidden="true" />
               Adicionar ao Google Agenda
             </Button>
