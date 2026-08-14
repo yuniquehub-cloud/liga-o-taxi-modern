@@ -47,6 +47,11 @@ function buildGoogleCalendarUrl(input: {
     location: input.origin || company.address.short,
   });
 
+  // Convida a central automaticamente para receber a solicitação no Google Agenda.
+  if (company.bookingNotifyEmails?.length) {
+    params.set("add", company.bookingNotifyEmails.join(","));
+  }
+
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
