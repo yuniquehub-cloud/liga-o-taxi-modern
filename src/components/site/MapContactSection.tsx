@@ -60,7 +60,7 @@ export function MapContactSection() {
                   Como Chegar
                 </a>
               </Button>
-              <Button variant="cta" size="xl" className="flex-1" asChild>
+              <Button variant="call" size="xl" className="flex-1" asChild>
                 <a href={`tel:${company.phoneTel}`}>
                   <Phone aria-hidden="true" />
                   Ligar para a Central
