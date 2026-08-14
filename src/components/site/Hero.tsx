@@ -1,4 +1,4 @@
-import { CalendarPlus, Calculator, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { CalendarPlus, Calculator, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import fleetTaxis from "@/assets/fleet-taxis.jpg";
 import { company, whatsappLink } from "@/config/company";
