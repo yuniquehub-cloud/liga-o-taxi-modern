@@ -4,6 +4,17 @@ import mercado from "@/assets/sp-mercado-municipal.jpg";
 import masp from "@/assets/sp-masp.jpg";
 import liberdade from "@/assets/sp-liberdade.jpg";
 import pacaembu from "@/assets/sp-pacaembu.jpg";
+import transatlantico from "@/assets/sp-transatlantico.jpg";
+import guaruja from "@/assets/sp-guaruja-praia.jpg";
+import congonhas from "@/assets/sp-congonhas.jpg";
+import gru from "@/assets/sp-gru.jpg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const places = [
   {
@@ -35,6 +46,26 @@ const places = [
     image: pacaembu,
     title: "Estádio do Pacaembu",
     text: "Arquitetura histórica do Estádio Municipal Paulo Machado de Carvalho.",
+  },
+  {
+    image: transatlantico,
+    title: "Transatlântico no Guarujá",
+    text: "Levamos você até o embarque dos cruzeiros na região de Santos e Guarujá.",
+  },
+  {
+    image: guaruja,
+    title: "Praias do Guarujá",
+    text: "Corridas para o litoral: Enseada, Pitangueiras e praias vizinhas.",
+  },
+  {
+    image: congonhas,
+    title: "Aeroporto de Congonhas",
+    text: "Transfer pontual para voos domésticos, com acompanhamento do horário.",
+  },
+  {
+    image: gru,
+    title: "Aeroporto de Guarulhos (GRU)",
+    text: "Traslado para voos nacionais e internacionais, ida e volta agendadas.",
   },
 ];
 
