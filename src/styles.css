@@ -107,6 +107,9 @@
   --green: oklch(0.68 0.16 152);
   --green-strong: oklch(0.6 0.15 152);
   --green-foreground: oklch(0.99 0.005 150);
+  --orange: oklch(0.68 0.22 55);
+  --orange-strong: oklch(0.58 0.2 55);
+  --orange-foreground: oklch(0.19 0.005 60);
   --gradient-dark: linear-gradient(
     160deg,
     oklch(0.19 0.005 60) 0%,
