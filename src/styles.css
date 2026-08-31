@@ -71,6 +71,9 @@
   --color-green: var(--green);
   --color-green-strong: var(--green-strong);
   --color-green-foreground: var(--green-foreground);
+  --color-orange: var(--orange);
+  --color-orange-strong: var(--orange-strong);
+  --color-orange-foreground: var(--orange-foreground);
   --shadow-soft: var(--shadow-soft);
   --shadow-lift: var(--shadow-lift);
 }
