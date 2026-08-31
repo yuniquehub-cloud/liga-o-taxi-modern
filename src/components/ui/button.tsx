@@ -16,7 +16,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "bg-[image:var(--gradient-yellow)] text-yellow-foreground font-bold tracking-tight shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--yellow)_75%,transparent)] ring-1 ring-inset ring-[color-mix(in_oklab,var(--yellow-foreground)_18%,transparent)] hover:shadow-[0_18px_40px_-14px_color-mix(in_oklab,var(--yellow)_85%,transparent)]",
+        cta: "bg-[image:var(--gradient-orange)] text-orange-foreground font-bold tracking-tight shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--orange)_75%,transparent)] ring-1 ring-inset ring-[color-mix(in_oklab,var(--orange-foreground)_18%,transparent)] hover:shadow-[0_18px_40px_-14px_color-mix(in_oklab,var(--orange)_85%,transparent)]",
         dark: "bg-graphite text-graphite-foreground font-semibold shadow-soft ring-1 ring-inset ring-white/10 hover:bg-graphite/90 hover:shadow-lift",
         call: "bg-[image:var(--gradient-green)] text-green-foreground font-bold tracking-tight shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--green)_75%,transparent)] ring-1 ring-inset ring-white/20 hover:shadow-[0_18px_40px_-14px_color-mix(in_oklab,var(--green)_85%,transparent)]",
         outlineLight:
