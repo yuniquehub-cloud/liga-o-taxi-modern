@@ -80,6 +80,7 @@ function Index() {
       <Header />
       <main>
         <Hero />
+        <Places />
         <TrustBar />
         <Stats />
         <FareCalculator />
@@ -87,7 +88,6 @@ function Index() {
         <Services />
         <About />
         <WhySaoPaulo />
-        <Places />
         <MapContactSection />
         <FinalCTA />
       </main>
