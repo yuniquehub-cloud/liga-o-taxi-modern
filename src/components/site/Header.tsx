@@ -64,7 +64,7 @@ export function Header() {
             <MessageCircle className="h-4 w-4 text-green" aria-hidden="true" />
             {company.whatsappDisplay}
           </a>
-          <Button variant="cta" size="lg" asChild>
+          <Button variant="call" size="lg" asChild>
             <a href={whatsappLink ?? `tel:${company.phoneTel}`} aria-label="Chamar táxi">
               Chamar Táxi
             </a>
