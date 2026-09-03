@@ -82,6 +82,7 @@ function Index() {
       <main>
         <Hero />
         <Places />
+        <TouristVideos />
         <TrustBar />
         <Stats />
         <FareCalculator />
