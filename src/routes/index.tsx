@@ -9,6 +9,7 @@ import { Services } from "@/components/site/Services";
 import { About } from "@/components/site/About";
 import { WhySaoPaulo } from "@/components/site/WhySaoPaulo";
 import { Places } from "@/components/site/Places";
+import { TouristVideos } from "@/components/site/TouristVideos";
 import { MapContactSection } from "@/components/site/MapContactSection";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
