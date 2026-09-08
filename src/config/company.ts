@@ -7,11 +7,8 @@ export const company = {
   whatsapp: "5511968969503",
   whatsappDisplay: "(11) 96896-9503",
   email: "falecom@radiotaxiligacao.com.br",
-  // E-mails que recebem o convite do agendamento no Google Agenda.
-  bookingNotifyEmails: [
-    "falecom@radiotaxiligacao.com.br",
-    "taximooca@gmail.com",
-  ],
+  // E-mail que recebe o convite do agendamento no Google Agenda.
+  bookingNotifyEmails: ["taximooca@gmail.com"],
   address: {
     street: "Rua Sapucaia, 500",
     district: "Mooca",
