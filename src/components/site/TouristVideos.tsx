@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Play, Globe, Volume2, Square } from "lucide-react";
 
 const videos = [
@@ -38,72 +38,86 @@ type Flag = {
   text: string;
 };
 
+type MusicState = {
+  audioContext: AudioContext;
+  gain: GainNode;
+  intervalId: number;
+};
+
+type WindowWithWebAudio = Window &
+  typeof globalThis & {
+    webkitAudioContext?: typeof AudioContext;
+  };
+
+const spanishIntro =
+  "Bienvenido a São Paulo, la segunda ciudad más grande del mundo y el mayor centro cultural y financiero de América Latina. Sea cual sea el motivo de tu visita, turismo, negocios, compras, entretenimiento o simple curiosidad, São Paulo tiene mucho más para ofrecer y vas a descubrir eso. Como todas las grandes ciudades del mundo, São Paulo no se detiene. Dicen que es la ciudad que siempre tiene prisa. Te sorprenderás con lo que vas a encontrar. Doscientas ochenta salas de cine, ciento veinte teatros, setenta y un museos y once centros culturales, doscientas cuarenta mil tiendas y setenta shopping centers con opciones para todos los bolsillos. Night clubs, hotelería de calidad, parques y una de las mejores cocinas del mundo. Aquí encontrarás el calor humano representado por descendientes de más de setenta naciones.";
+
 const flags: Flag[] = [
   {
     image: flagBr,
     label: "Brasil",
     lang: "pt-BR",
-    text: "Bem-vindo a São Paulo, a maior cidade do Brasil. Conheça o MASP, a Avenida Paulista, o bairro da Liberdade e a Mooca com o Rádio Táxi Ligação. Levamos você com segurança e conforto.",
+    text: "Bem-vindo a São Paulo, a segunda cidade mais grande do mundo e o maior centro cultural e financeiro da América Latina. Seja qual for o motivo da sua visita, turismo, negócios, compras, entretenimento ou simples curiosidade, São Paulo tem muito mais para oferecer e você vai descobrir isso. Como todas as grandes cidades do mundo, São Paulo não para. Dizem que é a cidade que sempre tem pressa. Você vai se surpreender com o que vai encontrar. Duzentas e oitenta salas de cinema, cento e vinte teatros, setenta e um museus e onze centros culturais, duzentas e quarenta mil lojas e setenta shopping centers com opções para todos os bolsos. Night clubs, hotelaria de qualidade, parques e uma das melhores cozinhas do mundo. Aqui você encontra o calor humano representado por descendentes de mais de setenta nações.",
   },
   {
     image: flagUs,
     label: "Estados Unidos",
     lang: "en-US",
-    text: "Welcome to São Paulo, the largest city in Brazil. Visit MASP, Paulista Avenue, the Liberdade district and Mooca with Rádio Táxi Ligação. We take you there safely and comfortably.",
+    text: "Welcome to São Paulo, the second largest city in the world and the largest cultural and financial center in Latin America. Whatever the reason for your visit, tourism, business, shopping, entertainment, or simple curiosity, São Paulo has much more to offer, and you are about to discover it. Like every great city in the world, São Paulo never stops. They say it is the city that is always in a hurry. You will be surprised by what you find here. Two hundred and eighty movie theaters, one hundred and twenty theaters, seventy-one museums, eleven cultural centers, two hundred and forty thousand stores, and seventy shopping centers with options for every budget. Night clubs, quality hotels, parks, and one of the best cuisines in the world. Here you will find human warmth represented by descendants from more than seventy nations.",
   },
   {
     image: flagAr,
     label: "Argentina",
     lang: "es-AR",
-    text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Visite el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação. Lo llevamos con seguridad y comodidad.",
+    text: spanishIntro,
   },
   {
     image: flagCl,
     label: "Chile",
     lang: "es-CL",
-    text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Recorra el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação, siempre con seguridad y comodidad.",
+    text: spanishIntro,
   },
   {
     image: flagPt,
     label: "Portugal",
     lang: "pt-PT",
-    text: "Bem-vindo a São Paulo, a maior cidade do Brasil. Visite o MASP, a Avenida Paulista, o bairro da Liberdade e a Mooca com o Rádio Táxi Ligação, com toda a segurança e conforto.",
+    text: "Bem-vindo a São Paulo, a segunda cidade mais grande do mundo e o maior centro cultural e financeiro da América Latina. Seja qual for o motivo da sua visita, turismo, negócios, compras, entretenimento ou simples curiosidade, São Paulo tem muito mais para oferecer e você vai descobrir isso. Como todas as grandes cidades do mundo, São Paulo não para. Dizem que é a cidade que está sempre com pressa. Vai surpreender-se com o que vai encontrar. Duzentas e oitenta salas de cinema, cento e vinte teatros, setenta e um museus e onze centros culturais, duzentas e quarenta mil lojas e setenta centros comerciais com opções para todos os bolsos. Night clubs, hotelaria de qualidade, parques e uma das melhores cozinhas do mundo. Aqui encontrará o calor humano representado por descendentes de mais de setenta nações.",
   },
   {
     image: flagEs,
     label: "Espanha",
     lang: "es-ES",
-    text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Descubra el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação, con seguridad y comodidad.",
+    text: spanishIntro,
   },
   {
     image: flagIt,
     label: "Itália",
     lang: "it-IT",
-    text: "Benvenuti a São Paulo, la città più grande del Brasile. Visitate il MASP, l'Avenida Paulista, il quartiere Liberdade e la Mooca con Rádio Táxi Ligação, in tutta sicurezza e comfort.",
+    text: "Benvenuti a São Paulo, la seconda città più grande del mondo e il più grande centro culturale e finanziario dell'America Latina. Qualunque sia il motivo della vostra visita, turismo, affari, shopping, intrattenimento o semplice curiosità, São Paulo ha molto di più da offrire e lo scoprirete. Come tutte le grandi città del mondo, São Paulo non si ferma mai. Dicono che sia la città che ha sempre fretta. Vi sorprenderà ciò che troverete. Duecentottanta sale cinematografiche, centoventi teatri, settantuno musei e undici centri culturali, duecentoquarantamila negozi e settanta centri commerciali con opzioni per tutte le tasche. Night club, hotel di qualità, parchi e una delle migliori cucine del mondo. Qui troverete il calore umano rappresentato dai discendenti di più di settanta nazioni.",
   },
   {
     image: flagJp,
     label: "Japão",
     lang: "ja-JP",
-    text: "ブラジル最大の都市、サンパウロへようこそ。MASP美術館、パウリスタ大通り、リベルダーデ地区、モオカ地区へ、ラジオタクシー・リガソンが安全で快適にお連れします。",
+    text: "サンパウロへようこそ。世界で二番目に大きな都市であり、ラテンアメリカ最大の文化と金融の中心地です。観光、ビジネス、ショッピング、エンターテインメント、または好奇心で訪れる方にも、サンパウロにはたくさんの魅力があります。世界の大都市と同じように、サンパウロは止まりません。いつも急いでいる街とも言われています。ここで見つけるものにきっと驚くでしょう。二百八十の映画館、百二十の劇場、七十一の博物館、十一の文化センター、二十四万の店舗、そしてあらゆる予算に合う七十のショッピングセンターがあります。ナイトクラブ、質の高いホテル、公園、そして世界でも有数の料理。ここでは七十以上の国の子孫がつくる温かい人々に出会えます。",
   },
   {
     image: flagDe,
     label: "Alemanha",
     lang: "de-DE",
-    text: "Willkommen in São Paulo, der größten Stadt Brasiliens. Besuchen Sie das MASP, die Avenida Paulista, das Viertel Liberdade und Mooca mit Rádio Táxi Ligação – sicher und komfortabel.",
+    text: "Willkommen in São Paulo, der zweitgrößten Stadt der Welt und dem größten Kultur- und Finanzzentrum Lateinamerikas. Ganz gleich, ob Sie wegen Tourismus, Geschäft, Shopping, Unterhaltung oder aus reiner Neugier hier sind, São Paulo hat viel mehr zu bieten, und Sie werden es entdecken. Wie alle großen Städte der Welt steht São Paulo niemals still. Man sagt, es sei die Stadt, die immer in Eile ist. Sie werden überrascht sein, was Sie hier finden: zweihundertachtzig Kinosäle, einhundertzwanzig Theater, einundsiebzig Museen und elf Kulturzentren, zweihundertvierzigtausend Geschäfte und siebzig Einkaufszentren mit Optionen für jedes Budget. Nightclubs, hochwertige Hotellerie, Parks und eine der besten Küchen der Welt. Hier finden Sie menschliche Wärme, vertreten durch Nachkommen aus mehr als siebzig Nationen.",
   },
   {
     image: flagFr,
     label: "França",
     lang: "fr-FR",
-    text: "Bienvenue à São Paulo, la plus grande ville du Brésil. Découvrez le MASP, l'Avenida Paulista, le quartier Liberdade et la Mooca avec Rádio Táxi Ligação, en toute sécurité et confort.",
+    text: "Bienvenue à São Paulo, la deuxième plus grande ville du monde et le plus grand centre culturel et financier d'Amérique latine. Quelle que soit la raison de votre visite, tourisme, affaires, shopping, divertissement ou simple curiosité, São Paulo a beaucoup plus à offrir et vous allez le découvrir. Comme toutes les grandes villes du monde, São Paulo ne s'arrête jamais. On dit que c'est la ville toujours pressée. Vous serez surpris par ce que vous allez trouver. Deux cent quatre-vingts salles de cinéma, cent vingt théâtres, soixante et onze musées et onze centres culturels, deux cent quarante mille magasins et soixante-dix centres commerciaux avec des options pour tous les budgets. Night clubs, hôtellerie de qualité, parcs et l'une des meilleures cuisines du monde. Ici, vous trouverez la chaleur humaine représentée par des descendants de plus de soixante-dix nations.",
   },
   {
     image: flagCn,
     label: "China",
     lang: "zh-CN",
-    text: "欢迎来到巴西最大的城市圣保罗。乘坐 Rádio Táxi Ligação，安全舒适地游览圣保罗艺术博物馆、保利斯塔大道、自由区和摩卡区。",
+    text: "欢迎来到圣保罗，这里是世界第二大城市，也是拉丁美洲最大的文化和金融中心。无论您来这里是旅游、商务、购物、娱乐，还是单纯好奇，圣保罗都有更多精彩等待您去发现。像世界上所有的大城市一样，圣保罗从不停下脚步。人们说，这是一座总是在赶时间的城市。这里的一切都会让您感到惊喜。这里有二百八十间电影院、一百二十座剧院、七十一座博物馆和十一座文化中心，二十四万家商店以及七十座购物中心，适合各种预算。夜生活、优质酒店、公园，以及世界上最好的美食之一。在这里，来自七十多个国家后裔组成的人们，会让您感受到热情与温暖。",
   },
 ];
 
@@ -111,6 +125,53 @@ const flags: Flag[] = [
 function FlagAudio() {
   const [playing, setPlaying] = useState<string | null>(null);
   const [supported, setSupported] = useState(true);
+  const musicRef = useRef<MusicState | null>(null);
+
+  const stopBackgroundMusic = () => {
+    const currentMusic = musicRef.current;
+    if (!currentMusic) return;
+    window.clearInterval(currentMusic.intervalId);
+    currentMusic.gain.gain.setTargetAtTime(0, currentMusic.audioContext.currentTime, 0.08);
+    window.setTimeout(() => {
+      void currentMusic.audioContext.close();
+    }, 260);
+    musicRef.current = null;
+  };
+
+  const startBackgroundMusic = () => {
+    stopBackgroundMusic();
+    const AudioContextConstructor =
+      window.AudioContext ?? (window as WindowWithWebAudio).webkitAudioContext;
+    if (!AudioContextConstructor) return;
+
+    const audioContext = new AudioContextConstructor();
+    const gain = audioContext.createGain();
+    gain.gain.value = 0.025;
+    gain.connect(audioContext.destination);
+
+    const notes = [261.63, 329.63, 392, 493.88, 392, 329.63];
+    let noteIndex = 0;
+
+    const playNote = () => {
+      const note = notes[noteIndex % notes.length];
+      if (typeof note !== "number") return;
+      const oscillator = audioContext.createOscillator();
+      const noteGain = audioContext.createGain();
+      oscillator.type = "sine";
+      oscillator.frequency.value = note;
+      noteGain.gain.setValueAtTime(0, audioContext.currentTime);
+      noteGain.gain.linearRampToValueAtTime(0.18, audioContext.currentTime + 0.08);
+      noteGain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 1.3);
+      oscillator.connect(noteGain).connect(gain);
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 1.35);
+      noteIndex += 1;
+    };
+
+    playNote();
+    const intervalId = window.setInterval(playNote, 1200);
+    musicRef.current = { audioContext, gain, intervalId };
+  };
 
   useEffect(() => {
     setSupported(typeof window !== "undefined" && "speechSynthesis" in window);
@@ -118,12 +179,14 @@ function FlagAudio() {
       if (typeof window !== "undefined" && "speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
+      stopBackgroundMusic();
     };
   }, []);
 
   const speak = (flag: Flag) => {
     if (!("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
+    stopBackgroundMusic();
     if (playing === flag.label) {
       setPlaying(null);
       return;
@@ -138,9 +201,16 @@ function FlagAudio() {
         .getVoices()
         .find((v) => v.lang.toLowerCase().startsWith(flag.lang.slice(0, 2).toLowerCase()));
     if (voice) utterance.voice = voice;
-    utterance.onend = () => setPlaying(null);
-    utterance.onerror = () => setPlaying(null);
+    utterance.onend = () => {
+      setPlaying(null);
+      stopBackgroundMusic();
+    };
+    utterance.onerror = () => {
+      setPlaying(null);
+      stopBackgroundMusic();
+    };
     setPlaying(flag.label);
+    startBackgroundMusic();
     window.speechSynthesis.speak(utterance);
   };
 
