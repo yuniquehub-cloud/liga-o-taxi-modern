@@ -240,19 +240,7 @@ export function TouristVideos() {
                 </p>
               </div>
             </div>
-            <ul className="flex flex-wrap items-center gap-2" aria-label="Países atendidos">
-              {flags.map((f) => (
-                <li
-                  key={f.label}
-                  title={f.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl transition-transform hover:scale-110"
-                >
-                  <span role="img" aria-label={f.label}>
-                    {f.emoji}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <FlagAudio />
           </div>
         </div>
       </div>
