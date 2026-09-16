@@ -28,8 +28,23 @@ export const company = {
 export const stats = [
   { value: "22+", label: "anos no mercado", detail: "Tradição no atendimento de táxi em São Paulo." },
   { value: "100 mil+", label: "clientes satisfeitos", detail: "Corridas urbanas, agendadas e empresariais." },
+  { value: "20", label: "carros na frota", detail: "Veículos com ar-condicionado e motoristas qualificados." },
   { value: "5", label: "regiões atendidas", detail: "Mooca, Tatuapé, Vila Prudente, Belém e Brás." },
 ] as const;
+
+/** Tabela de conversão de tarifas (valores anteriores x vigentes). */
+export const fareHistory = [
+  { label: "Bandeirada", old: 4.5, current: 6.55 },
+  { label: "Km rodado", old: 2.75, current: 4.8 },
+  { label: "Tarifa horária (hora parada)", old: 33.0, current: 55.5 },
+] as const;
+
+export const socials = {
+  facebook: "https://www.facebook.com/",
+  instagram: "https://www.instagram.com/",
+  youtube: "https://www.youtube.com/",
+  twitter: "https://twitter.com/",
+} as const;
 
 export const fares = {
   bandeirada: 6.55,
