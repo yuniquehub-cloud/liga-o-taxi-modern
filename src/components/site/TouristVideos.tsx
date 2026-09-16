@@ -99,7 +99,14 @@ const flags: Flag[] = [
     lang: "fr-FR",
     text: "Bienvenue à São Paulo, la plus grande ville du Brésil. Découvrez le MASP, l'Avenida Paulista, le quartier Liberdade et la Mooca avec Rádio Táxi Ligação, en toute sécurité et confort.",
   },
+  {
+    image: flagCn,
+    label: "China",
+    lang: "zh-CN",
+    text: "欢迎来到巴西最大的城市圣保罗。乘坐 Rádio Táxi Ligação，安全舒适地游览圣保罗艺术博物馆、保利斯塔大道、自由区和摩卡区。",
+  },
 ];
+
 
 function FlagAudio() {
   const [playing, setPlaying] = useState<string | null>(null);
