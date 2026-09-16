@@ -6,6 +6,7 @@ import { Stats } from "@/components/site/Stats";
 import { FareCalculator } from "@/components/site/FareCalculator";
 import { Booking } from "@/components/site/Booking";
 import { Services } from "@/components/site/Services";
+import { ServiceDetails } from "@/components/site/ServiceDetails";
 import { About } from "@/components/site/About";
 import { WhySaoPaulo } from "@/components/site/WhySaoPaulo";
 import { Places } from "@/components/site/Places";
