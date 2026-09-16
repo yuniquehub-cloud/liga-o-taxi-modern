@@ -1,4 +1,5 @@
-import { Play, Globe } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Play, Globe, Volume2, Square } from "lucide-react";
 
 const videos = [
   {
@@ -18,18 +19,153 @@ const videos = [
   },
 ];
 
-const flags = [
-  { emoji: "🇧🇷", label: "Brasil" },
-  { emoji: "🇺🇸", label: "Estados Unidos" },
-  { emoji: "🇦🇷", label: "Argentina" },
-  { emoji: "🇨🇱", label: "Chile" },
-  { emoji: "🇵🇹", label: "Portugal" },
-  { emoji: "🇪🇸", label: "Espanha" },
-  { emoji: "🇮🇹", label: "Itália" },
-  { emoji: "🇯🇵", label: "Japão" },
-  { emoji: "🇩🇪", label: "Alemanha" },
-  { emoji: "🇫🇷", label: "França" },
+type Flag = {
+  emoji: string;
+  label: string;
+  lang: string;
+  text: string;
+};
+
+const flags: Flag[] = [
+  {
+    emoji: "🇧🇷",
+    label: "Brasil",
+    lang: "pt-BR",
+    text: "Bem-vindo a São Paulo, a maior cidade do Brasil. Conheça o MASP, a Avenida Paulista, o bairro da Liberdade e a Mooca com o Rádio Táxi Ligação. Levamos você com segurança e conforto.",
+  },
+  {
+    emoji: "🇺🇸",
+    label: "Estados Unidos",
+    lang: "en-US",
+    text: "Welcome to São Paulo, the largest city in Brazil. Visit MASP, Paulista Avenue, the Liberdade district and Mooca with Rádio Táxi Ligação. We take you there safely and comfortably.",
+  },
+  {
+    emoji: "🇦🇷",
+    label: "Argentina",
+    lang: "es-AR",
+    text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Visite el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação. Lo llevamos con seguridad y comodidad.",
+  },
+  {
+    emoji: "🇨🇱",
+    label: "Chile",
+    lang: "es-CL",
+    text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Recorra el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação, siempre con seguridad y comodidad.",
+  },
+  {
+    emoji: "🇵🇹",
+    label: "Portugal",
+    lang: "pt-PT",
+    text: "Bem-vindo a São Paulo, a maior cidade do Brasil. Visite o MASP, a Avenida Paulista, o bairro da Liberdade e a Mooca com o Rádio Táxi Ligação, com toda a segurança e conforto.",
+  },
+  {
+    emoji: "🇪🇸",
+    label: "Espanha",
+    lang: "es-ES",
+    text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Descubra el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação, con seguridad y comodidad.",
+  },
+  {
+    emoji: "🇮🇹",
+    label: "Itália",
+    lang: "it-IT",
+    text: "Benvenuti a São Paulo, la città più grande del Brasile. Visitate il MASP, l'Avenida Paulista, il quartiere Liberdade e la Mooca con Rádio Táxi Ligação, in tutta sicurezza e comfort.",
+  },
+  {
+    emoji: "🇯🇵",
+    label: "Japão",
+    lang: "ja-JP",
+    text: "ブラジル最大の都市、サンパウロへようこそ。MASP美術館、パウリスタ大通り、リベルダーデ地区、モオカ地区へ、ラジオタクシー・リガソンが安全で快適にお連れします。",
+  },
+  {
+    emoji: "🇩🇪",
+    label: "Alemanha",
+    lang: "de-DE",
+    text: "Willkommen in São Paulo, der größten Stadt Brasiliens. Besuchen Sie das MASP, die Avenida Paulista, das Viertel Liberdade und Mooca mit Rádio Táxi Ligação – sicher und komfortabel.",
+  },
+  {
+    emoji: "🇫🇷",
+    label: "França",
+    lang: "fr-FR",
+    text: "Bienvenue à São Paulo, la plus grande ville du Brésil. Découvrez le MASP, l'Avenida Paulista, le quartier Liberdade et la Mooca avec Rádio Táxi Ligação, en toute sécurité et confort.",
+  },
 ];
+
+function FlagAudio() {
+  const [playing, setPlaying] = useState<string | null>(null);
+  const [supported, setSupported] = useState(true);
+
+  useEffect(() => {
+    setSupported(typeof window !== "undefined" && "speechSynthesis" in window);
+    return () => {
+      if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
+  const speak = (flag: Flag) => {
+    if (!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    if (playing === flag.label) {
+      setPlaying(null);
+      return;
+    }
+    const utterance = new SpeechSynthesisUtterance(flag.text);
+    utterance.lang = flag.lang;
+    utterance.rate = 0.98;
+    const voice = window.speechSynthesis
+      .getVoices()
+      .find((v) => v.lang.replace("_", "-").toLowerCase() === flag.lang.toLowerCase())
+      ?? window.speechSynthesis
+        .getVoices()
+        .find((v) => v.lang.toLowerCase().startsWith(flag.lang.slice(0, 2).toLowerCase()));
+    if (voice) utterance.voice = voice;
+    utterance.onend = () => setPlaying(null);
+    utterance.onerror = () => setPlaying(null);
+    setPlaying(flag.label);
+    window.speechSynthesis.speak(utterance);
+  };
+
+  return (
+    <div className="w-full sm:w-auto">
+      <ul className="flex flex-wrap items-center gap-2" aria-label="Países atendidos">
+        {flags.map((f) => {
+          const isPlaying = playing === f.label;
+          return (
+            <li key={f.label}>
+              <button
+                type="button"
+                onClick={() => speak(f)}
+                title={`${f.label} — ouvir sobre São Paulo`}
+                aria-label={`Ouvir apresentação de São Paulo em ${f.label}`}
+                className={`relative flex h-11 w-11 items-center justify-center rounded-full border text-xl transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow ${
+                  isPlaying
+                    ? "border-yellow bg-yellow/20 ring-2 ring-yellow/60"
+                    : "border-white/10 bg-white/5"
+                }`}
+              >
+                <span role="img" aria-hidden="true">
+                  {f.emoji}
+                </span>
+                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-yellow text-foreground">
+                  {isPlaying ? (
+                    <Square className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
+                  ) : (
+                    <Volume2 className="h-3 w-3" aria-hidden="true" />
+                  )}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+      <p className="mt-3 text-xs text-graphite-foreground/60">
+        {supported
+          ? "Toque em uma bandeira para ouvir sobre São Paulo no seu idioma."
+          : "Seu navegador não suporta a narração por voz."}
+      </p>
+    </div>
+  );
+}
 
 export function TouristVideos() {
   return (
@@ -104,19 +240,7 @@ export function TouristVideos() {
                 </p>
               </div>
             </div>
-            <ul className="flex flex-wrap items-center gap-2" aria-label="Países atendidos">
-              {flags.map((f) => (
-                <li
-                  key={f.label}
-                  title={f.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl transition-transform hover:scale-110"
-                >
-                  <span role="img" aria-label={f.label}>
-                    {f.emoji}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <FlagAudio />
           </div>
         </div>
       </div>
