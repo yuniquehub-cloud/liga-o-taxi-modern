@@ -89,6 +89,7 @@ function Index() {
         <FareCalculator />
         <Booking />
         <Services />
+        <ServiceDetails />
         <About />
         <WhySaoPaulo />
         <MapContactSection />
