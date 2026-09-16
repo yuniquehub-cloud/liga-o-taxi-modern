@@ -1,6 +1,14 @@
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, MessageCircle, Twitter, Youtube } from "lucide-react";
 import { Logo } from "./Logo";
-import { company } from "@/config/company";
+import { company, socials, whatsappLink } from "@/config/company";
+
+const socialLinks = [
+  { href: socials.instagram, label: "Instagram", icon: Instagram },
+  { href: socials.facebook, label: "Facebook", icon: Facebook },
+  { href: socials.youtube, label: "YouTube", icon: Youtube },
+  { href: socials.twitter, label: "Twitter", icon: Twitter },
+  ...(whatsappLink ? [{ href: whatsappLink, label: "WhatsApp", icon: MessageCircle }] : []),
+];
 
 const links = [
   { href: "#inicio", label: "Início" },
