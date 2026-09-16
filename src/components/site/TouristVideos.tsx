@@ -44,6 +44,11 @@ type MusicState = {
   intervalId: number;
 };
 
+type WindowWithWebAudio = Window &
+  typeof globalThis & {
+    webkitAudioContext?: typeof AudioContext;
+  };
+
 const spanishIntro =
   "Bienvenido a São Paulo, la segunda ciudad más grande del mundo y el mayor centro cultural y financiero de América Latina. Sea cual sea el motivo de tu visita, turismo, negocios, compras, entretenimiento o simple curiosidad, São Paulo tiene mucho más para ofrecer y vas a descubrir eso. Como todas las grandes ciudades del mundo, São Paulo no se detiene. Dicen que es la ciudad que siempre tiene prisa. Te sorprenderás con lo que vas a encontrar. Doscientas ochenta salas de cine, ciento veinte teatros, setenta y un museos y once centros culturales, doscientas cuarenta mil tiendas y setenta shopping centers con opciones para todos los bolsillos. Night clubs, hotelería de calidad, parques y una de las mejores cocinas del mundo. Aquí encontrarás el calor humano representado por descendientes de más de setenta naciones.";
 
@@ -135,7 +140,8 @@ function FlagAudio() {
 
   const startBackgroundMusic = () => {
     stopBackgroundMusic();
-    const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+    const AudioContextConstructor =
+      window.AudioContext ?? (window as WindowWithWebAudio).webkitAudioContext;
     if (!AudioContextConstructor) return;
 
     const audioContext = new AudioContextConstructor();
@@ -147,10 +153,12 @@ function FlagAudio() {
     let noteIndex = 0;
 
     const playNote = () => {
+      const note = notes[noteIndex % notes.length];
+      if (typeof note !== "number") return;
       const oscillator = audioContext.createOscillator();
       const noteGain = audioContext.createGain();
       oscillator.type = "sine";
-      oscillator.frequency.value = notes[noteIndex % notes.length] ?? notes[0];
+      oscillator.frequency.value = note;
       noteGain.gain.setValueAtTime(0, audioContext.currentTime);
       noteGain.gain.linearRampToValueAtTime(0.18, audioContext.currentTime + 0.08);
       noteGain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 1.3);
