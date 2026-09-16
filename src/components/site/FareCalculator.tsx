@@ -3,7 +3,7 @@ import { Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { brl, fares } from "@/config/company";
+import { brl, fareHistory, fares } from "@/config/company";
 
 const rateRows = [
   { label: "Bandeirada (valor inicial)", value: brl(fares.bandeirada) },
