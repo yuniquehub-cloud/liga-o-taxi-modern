@@ -117,7 +117,7 @@ function FlagAudio() {
       .find((v) => v.lang.replace("_", "-").toLowerCase() === flag.lang.toLowerCase())
       ?? window.speechSynthesis
         .getVoices()
-        .find((v) => v.lang.toLowerCase().startsWith(flag.lang.split("-")[0]));
+        .find((v) => v.lang.toLowerCase().startsWith(flag.lang.slice(0, 2).toLowerCase()));
     if (voice) utterance.voice = voice;
     utterance.onend = () => setPlaying(null);
     utterance.onerror = () => setPlaying(null);
