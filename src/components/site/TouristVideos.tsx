@@ -146,33 +146,40 @@ function FlagAudio() {
 
   return (
     <div className="w-full sm:w-auto">
-      <ul className="flex flex-wrap items-center gap-2" aria-label="Países atendidos">
+      <ul className="flex flex-wrap items-start gap-3 sm:gap-4" aria-label="Países atendidos">
         {flags.map((f) => {
           const isPlaying = playing === f.label;
           return (
-            <li key={f.label}>
+            <li key={f.label} className="w-16 text-center">
               <button
                 type="button"
                 onClick={() => speak(f)}
                 title={`${f.label} — ouvir sobre São Paulo`}
                 aria-label={`Ouvir apresentação de São Paulo em ${f.label}`}
-                className={`relative flex h-11 w-11 items-center justify-center rounded-full border text-xl transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow ${
-                  isPlaying
-                    ? "border-yellow bg-yellow/20 ring-2 ring-yellow/60"
-                    : "border-white/10 bg-white/5"
+                className={`relative block h-16 w-16 overflow-hidden rounded-full border-2 transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow ${
+                  isPlaying ? "border-yellow ring-2 ring-yellow/60" : "border-white/25"
                 }`}
               >
-                <span role="img" aria-hidden="true">
-                  {f.emoji}
-                </span>
-                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-yellow text-foreground">
+                <img
+                  src={f.image}
+                  alt={`Bandeira do país: ${f.label}`}
+                  width={160}
+                  height={160}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full scale-[1.35] object-cover"
+                />
+                <span className="absolute bottom-0 right-0 flex h-6 w-6 items-center justify-center rounded-full bg-yellow text-yellow-foreground ring-2 ring-graphite">
                   {isPlaying ? (
                     <Square className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
                   ) : (
-                    <Volume2 className="h-3 w-3" aria-hidden="true" />
+                    <Volume2 className="h-3.5 w-3.5" aria-hidden="true" />
                   )}
                 </span>
               </button>
+              <span className="mt-2 block text-[11px] font-bold leading-tight text-graphite-foreground/70">
+                {f.label}
+              </span>
             </li>
           );
         })}
