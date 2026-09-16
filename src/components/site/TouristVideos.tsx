@@ -19,8 +19,20 @@ const videos = [
   },
 ];
 
+import flagBr from "@/assets/flags/br.png";
+import flagUs from "@/assets/flags/us.png";
+import flagAr from "@/assets/flags/ar.png";
+import flagCl from "@/assets/flags/cl.png";
+import flagPt from "@/assets/flags/pt.png";
+import flagEs from "@/assets/flags/es.png";
+import flagIt from "@/assets/flags/it.png";
+import flagJp from "@/assets/flags/jp.png";
+import flagDe from "@/assets/flags/de.png";
+import flagFr from "@/assets/flags/fr.png";
+import flagCn from "@/assets/flags/cn.png";
+
 type Flag = {
-  emoji: string;
+  image: string;
   label: string;
   lang: string;
   text: string;
@@ -28,66 +40,73 @@ type Flag = {
 
 const flags: Flag[] = [
   {
-    emoji: "🇧🇷",
+    image: flagBr,
     label: "Brasil",
     lang: "pt-BR",
     text: "Bem-vindo a São Paulo, a maior cidade do Brasil. Conheça o MASP, a Avenida Paulista, o bairro da Liberdade e a Mooca com o Rádio Táxi Ligação. Levamos você com segurança e conforto.",
   },
   {
-    emoji: "🇺🇸",
+    image: flagUs,
     label: "Estados Unidos",
     lang: "en-US",
     text: "Welcome to São Paulo, the largest city in Brazil. Visit MASP, Paulista Avenue, the Liberdade district and Mooca with Rádio Táxi Ligação. We take you there safely and comfortably.",
   },
   {
-    emoji: "🇦🇷",
+    image: flagAr,
     label: "Argentina",
     lang: "es-AR",
     text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Visite el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação. Lo llevamos con seguridad y comodidad.",
   },
   {
-    emoji: "🇨🇱",
+    image: flagCl,
     label: "Chile",
     lang: "es-CL",
     text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Recorra el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação, siempre con seguridad y comodidad.",
   },
   {
-    emoji: "🇵🇹",
+    image: flagPt,
     label: "Portugal",
     lang: "pt-PT",
     text: "Bem-vindo a São Paulo, a maior cidade do Brasil. Visite o MASP, a Avenida Paulista, o bairro da Liberdade e a Mooca com o Rádio Táxi Ligação, com toda a segurança e conforto.",
   },
   {
-    emoji: "🇪🇸",
+    image: flagEs,
     label: "Espanha",
     lang: "es-ES",
     text: "Bienvenido a São Paulo, la ciudad más grande de Brasil. Descubra el MASP, la Avenida Paulista, el barrio Liberdade y la Mooca con Rádio Táxi Ligação, con seguridad y comodidad.",
   },
   {
-    emoji: "🇮🇹",
+    image: flagIt,
     label: "Itália",
     lang: "it-IT",
     text: "Benvenuti a São Paulo, la città più grande del Brasile. Visitate il MASP, l'Avenida Paulista, il quartiere Liberdade e la Mooca con Rádio Táxi Ligação, in tutta sicurezza e comfort.",
   },
   {
-    emoji: "🇯🇵",
+    image: flagJp,
     label: "Japão",
     lang: "ja-JP",
     text: "ブラジル最大の都市、サンパウロへようこそ。MASP美術館、パウリスタ大通り、リベルダーデ地区、モオカ地区へ、ラジオタクシー・リガソンが安全で快適にお連れします。",
   },
   {
-    emoji: "🇩🇪",
+    image: flagDe,
     label: "Alemanha",
     lang: "de-DE",
     text: "Willkommen in São Paulo, der größten Stadt Brasiliens. Besuchen Sie das MASP, die Avenida Paulista, das Viertel Liberdade und Mooca mit Rádio Táxi Ligação – sicher und komfortabel.",
   },
   {
-    emoji: "🇫🇷",
+    image: flagFr,
     label: "França",
     lang: "fr-FR",
     text: "Bienvenue à São Paulo, la plus grande ville du Brésil. Découvrez le MASP, l'Avenida Paulista, le quartier Liberdade et la Mooca avec Rádio Táxi Ligação, en toute sécurité et confort.",
   },
+  {
+    image: flagCn,
+    label: "China",
+    lang: "zh-CN",
+    text: "欢迎来到巴西最大的城市圣保罗。乘坐 Rádio Táxi Ligação，安全舒适地游览圣保罗艺术博物馆、保利斯塔大道、自由区和摩卡区。",
+  },
 ];
+
 
 function FlagAudio() {
   const [playing, setPlaying] = useState<string | null>(null);
@@ -127,33 +146,40 @@ function FlagAudio() {
 
   return (
     <div className="w-full sm:w-auto">
-      <ul className="flex flex-wrap items-center gap-2" aria-label="Países atendidos">
+      <ul className="flex flex-wrap items-start gap-3 sm:gap-4" aria-label="Países atendidos">
         {flags.map((f) => {
           const isPlaying = playing === f.label;
           return (
-            <li key={f.label}>
+            <li key={f.label} className="w-16 text-center">
               <button
                 type="button"
                 onClick={() => speak(f)}
                 title={`${f.label} — ouvir sobre São Paulo`}
                 aria-label={`Ouvir apresentação de São Paulo em ${f.label}`}
-                className={`relative flex h-11 w-11 items-center justify-center rounded-full border text-xl transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow ${
-                  isPlaying
-                    ? "border-yellow bg-yellow/20 ring-2 ring-yellow/60"
-                    : "border-white/10 bg-white/5"
+                className={`relative block h-16 w-16 overflow-hidden rounded-full border-2 transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow ${
+                  isPlaying ? "border-yellow ring-2 ring-yellow/60" : "border-white/25"
                 }`}
               >
-                <span role="img" aria-hidden="true">
-                  {f.emoji}
-                </span>
-                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-yellow text-foreground">
+                <img
+                  src={f.image}
+                  alt={`Bandeira do país: ${f.label}`}
+                  width={160}
+                  height={160}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full scale-[1.35] object-cover"
+                />
+                <span className="absolute bottom-0 right-0 flex h-6 w-6 items-center justify-center rounded-full bg-yellow text-yellow-foreground ring-2 ring-graphite">
                   {isPlaying ? (
                     <Square className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
                   ) : (
-                    <Volume2 className="h-3 w-3" aria-hidden="true" />
+                    <Volume2 className="h-3.5 w-3.5" aria-hidden="true" />
                   )}
                 </span>
               </button>
+              <span className="mt-2 block text-[11px] font-bold leading-tight text-graphite-foreground/70">
+                {f.label}
+              </span>
             </li>
           );
         })}
