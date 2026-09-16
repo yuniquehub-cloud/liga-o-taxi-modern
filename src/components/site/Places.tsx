@@ -50,6 +50,11 @@ const places = [
     text: "Arquitetura histórica do Estádio Municipal Paulo Machado de Carvalho.",
   },
   {
+    image: pacaembu,
+    title: "Museu do Futebol",
+    text: "No Pacaembu, narra de forma lúdica e interativa como o futebol chegou ao Brasil.",
+  },
+  {
     image: transatlantico,
     title: "Transatlântico no Guarujá",
     text: "Levamos você até o embarque dos cruzeiros na região de Santos e Guarujá.",
