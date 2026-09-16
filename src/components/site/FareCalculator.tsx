@@ -3,7 +3,7 @@ import { Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { brl, fares } from "@/config/company";
+import { brl, fareHistory, fares } from "@/config/company";
 
 const rateRows = [
   { label: "Bandeirada (valor inicial)", value: brl(fares.bandeirada) },
@@ -181,6 +181,32 @@ export function FareCalculator() {
                 </div>
               ))}
             </dl>
+
+            <h3 className="mt-8 text-lg font-extrabold">Tabela de conversão</h3>
+            <p className="mt-1 text-sm text-graphite-foreground/65">Compare os valores anteriores com os de hoje.</p>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <caption className="sr-only">Comparação entre tarifas antigas e vigentes</caption>
+                <thead>
+                  <tr className="border-b border-graphite-foreground/20 text-xs font-bold uppercase tracking-wide text-graphite-foreground/60">
+                    <th scope="col" className="py-3 pr-4">Tarifa</th>
+                    <th scope="col" className="py-3 pr-4">Valor antigo</th>
+                    <th scope="col" className="py-3">Valor hoje</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-graphite-foreground/15">
+                  {fareHistory.map((row) => (
+                    <tr key={row.label}>
+                      <th scope="row" className="py-3 pr-4 font-semibold text-graphite-foreground/80">
+                        {row.label}
+                      </th>
+                      <td className="py-3 pr-4 text-graphite-foreground/55 line-through">{brl(row.old)}</td>
+                      <td className="py-3 font-extrabold text-yellow">{brl(row.current)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

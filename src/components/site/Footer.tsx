@@ -1,6 +1,14 @@
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, MessageCircle, Twitter, Youtube } from "lucide-react";
 import { Logo } from "./Logo";
-import { company } from "@/config/company";
+import { company, socials, whatsappLink } from "@/config/company";
+
+const socialLinks = [
+  { href: socials.instagram, label: "Instagram", icon: Instagram },
+  { href: socials.facebook, label: "Facebook", icon: Facebook },
+  { href: socials.youtube, label: "YouTube", icon: Youtube },
+  { href: socials.twitter, label: "Twitter", icon: Twitter },
+  ...(whatsappLink ? [{ href: whatsappLink, label: "WhatsApp", icon: MessageCircle }] : []),
+];
 
 const links = [
   { href: "#inicio", label: "Início" },
@@ -19,25 +27,20 @@ export function Footer() {
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             O melhor serviço de táxi na Mooca em São Paulo, com atendimento profissional.
           </p>
-          <div className="mt-5 flex gap-2">
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram da Rádio Táxi Ligação"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-muted-foreground transition-colors hover:border-yellow hover:text-foreground"
-            >
-              <Instagram className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook da Rádio Táxi Ligação"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-muted-foreground transition-colors hover:border-yellow hover:text-foreground"
-            >
-              <Facebook className="h-4 w-4" aria-hidden="true" />
-            </a>
+          <p className="mt-4 text-sm font-extrabold uppercase tracking-wide text-foreground">Nossa rede social</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {socialLinks.map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${label} da Rádio Táxi Ligação`}
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-muted-foreground transition-colors hover:border-yellow hover:text-foreground"
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+              </a>
+            ))}
           </div>
         </div>
 

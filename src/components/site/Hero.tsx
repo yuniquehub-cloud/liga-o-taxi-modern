@@ -51,6 +51,12 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-graphite-foreground/75">
             Conte com a {company.companyName} para um atendimento rápido, profissional e confiável.
           </p>
+          <p className="mt-4 text-base font-extrabold uppercase tracking-[0.12em] text-graphite-foreground/80">
+            No Brasil e no mundo, <span className="text-yellow">táxi é mais seguro.</span>{" "}
+            <span className="font-semibold normal-case tracking-normal text-graphite-foreground/60">
+              Como podemos ajudá-lo?
+            </span>
+          </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button variant="call" size="xl" asChild>
