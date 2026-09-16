@@ -1,4 +1,5 @@
-import { Play, Globe } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Play, Globe, Volume2, Square } from "lucide-react";
 
 const videos = [
   {
