@@ -19,8 +19,20 @@ const videos = [
   },
 ];
 
+import flagBr from "@/assets/flags/br.png";
+import flagUs from "@/assets/flags/us.png";
+import flagAr from "@/assets/flags/ar.png";
+import flagCl from "@/assets/flags/cl.png";
+import flagPt from "@/assets/flags/pt.png";
+import flagEs from "@/assets/flags/es.png";
+import flagIt from "@/assets/flags/it.png";
+import flagJp from "@/assets/flags/jp.png";
+import flagDe from "@/assets/flags/de.png";
+import flagFr from "@/assets/flags/fr.png";
+import flagCn from "@/assets/flags/cn.png";
+
 type Flag = {
-  emoji: string;
+  image: string;
   label: string;
   lang: string;
   text: string;
