@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { socials, whatsappLink } from "@/config/company";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/TrustBar";
@@ -57,6 +58,7 @@ export const Route = createFileRoute("/")({
             addressCountry: "BR",
           },
           areaServed: { "@type": "City", name: "São Paulo" },
+          sameAs: [whatsappLink, socials.facebook, socials.instagram, socials.twitter, socials.youtube],
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
