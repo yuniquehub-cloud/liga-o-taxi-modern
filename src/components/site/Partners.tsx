@@ -61,32 +61,26 @@ export function Partners() {
           <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-yellow" aria-hidden="true" />
         </div>
 
-        <Carousel opts={{ align: "center", loop: true }} plugins={[autoplay.current]} className="mx-auto mt-10 max-w-4xl">
-          <CarouselContent className="-ml-5">
+        <Carousel opts={{ align: "start", loop: true }} plugins={[autoplay.current]} className="mx-auto mt-10 max-w-6xl">
+          <CarouselContent className="-ml-6">
             {partnerSlides.map(({ image, title, tag, icon: Icon, alt }) => (
-              <CarouselItem key={title} className="pl-5 md:basis-4/5">
-                <article className="card-lift overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
-                  <div className="flex min-h-[21rem] items-center justify-center bg-background p-4 sm:min-h-[26rem] sm:p-8">
+              <CarouselItem key={title} className="pl-6 sm:basis-1/2">
+                <figure className="flex h-full flex-col items-center">
+                  <div className="flex w-full flex-1 items-center justify-center rounded-2xl bg-background p-6 shadow-soft">
                     <img
                       src={image}
                       alt={alt}
-                      width={900}
-                      height={600}
                       loading="lazy"
                       decoding="async"
-                      className="max-h-[18rem] w-full object-contain sm:max-h-[22rem]"
+                      className="h-auto max-h-[18rem] w-auto max-w-full object-contain"
                     />
                   </div>
-                  <div className="flex items-center justify-between gap-4 border-t border-border p-5">
-                    <div>
-                      <p className="text-xs font-extrabold uppercase tracking-wide text-muted-foreground">{tag}</p>
-                      <h3 className="mt-1 text-lg font-extrabold text-foreground">{title}</h3>
-                    </div>
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-yellow text-yellow-foreground">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                  </div>
-                </article>
+                  <figcaption className="mt-4 flex items-center justify-center gap-2 text-center">
+                    <Icon className="h-4 w-4 text-yellow-foreground" aria-hidden="true" />
+                    <span className="text-xs font-extrabold uppercase tracking-wide text-muted-foreground">{tag}</span>
+                    <span className="text-sm font-extrabold text-foreground">{title}</span>
+                  </figcaption>
+                </figure>
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -96,6 +90,7 @@ export function Partners() {
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Arraste para ver mais</p>
           </div>
         </Carousel>
+
       </div>
     </section>
   );
