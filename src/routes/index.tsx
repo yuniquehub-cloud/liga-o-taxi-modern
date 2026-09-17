@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { socials, whatsappLink } from "@/config/company";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/TrustBar";
@@ -13,6 +14,7 @@ import { Places } from "@/components/site/Places";
 import { TouristVideos } from "@/components/site/TouristVideos";
 import { Partners } from "@/components/site/Partners";
 import { MapContactSection } from "@/components/site/MapContactSection";
+import { SocialBar } from "@/components/site/SocialBar";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
@@ -56,6 +58,7 @@ export const Route = createFileRoute("/")({
             addressCountry: "BR",
           },
           areaServed: { "@type": "City", name: "São Paulo" },
+          sameAs: [whatsappLink, socials.facebook, socials.instagram, socials.twitter, socials.youtube],
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
@@ -95,6 +98,7 @@ function Index() {
         <About />
         <WhySaoPaulo />
         <MapContactSection />
+        <SocialBar />
         <FinalCTA />
       </main>
       <Footer />
