@@ -11,6 +11,7 @@ import { About } from "@/components/site/About";
 import { WhySaoPaulo } from "@/components/site/WhySaoPaulo";
 import { Places } from "@/components/site/Places";
 import { TouristVideos } from "@/components/site/TouristVideos";
+import { Partners } from "@/components/site/Partners";
 import { MapContactSection } from "@/components/site/MapContactSection";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
@@ -84,6 +85,7 @@ function Index() {
         <Hero />
         <Places />
         <TouristVideos />
+        <Partners />
         <TrustBar />
         <Stats />
         <FareCalculator />

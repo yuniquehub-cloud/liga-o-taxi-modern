@@ -1,5 +1,31 @@
 import { useEffect, useRef, useState } from "react";
-import { Play, Globe, Volume2, Square } from "lucide-react";
+import { Facebook, Globe, Instagram, Mail, MessageCircle, Play, Square, Twitter, Volume2, Youtube } from "lucide-react";
+import featuredVideoAsset from "@/assets/video/video-sp-light.mp4.asset.json";
+import { company, socials, whatsappLink } from "@/config/company";
+
+const socialLinks = [
+  { href: socials.facebook, label: "Facebook", icon: Facebook },
+  { href: socials.instagram, label: "Instagram", icon: Instagram },
+  { href: `mailto:${company.email}`, label: "E-mail", icon: Mail },
+  ...(whatsappLink ? [{ href: whatsappLink, label: "WhatsApp", icon: MessageCircle }] : []),
+  { href: socials.youtube, label: "YouTube", icon: Youtube },
+  { href: socials.twitter, label: "Twitter", icon: Twitter },
+];
+
+const featuredVideos = [
+  {
+    kind: "local" as const,
+    src: featuredVideoAsset.url,
+    title: "Passeio guiado por São Paulo",
+    description: "Vídeo otimizado para carregar mais rápido sem pesar o site.",
+  },
+  {
+    kind: "youtube" as const,
+    id: "CiYkLNS3rKE",
+    title: "São Paulo em destaque",
+    description: "Mais um roteiro para quem quer conhecer a cidade com segurança.",
+  },
+];
 
 const videos = [
   {
@@ -284,6 +310,65 @@ export function TouristVideos() {
           <p className="mt-3 text-lg text-graphite-foreground/80">
             A gente te leva até lá. Confira trechos de São Paulo e região que fazemos parte do roteiro.
           </p>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          {socialLinks.map(({ href, label, icon: Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target={href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+              aria-label={`${label} da Rádio Táxi Ligação`}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-graphite-foreground/75 transition-colors hover:border-yellow hover:bg-yellow hover:text-yellow-foreground"
+            >
+              <Icon className="h-5 w-5" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:gap-8">
+          {featuredVideos.map((video) => (
+            <article
+              key={video.title}
+              className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-lift backdrop-blur-sm transition-colors hover:border-yellow/30 hover:bg-white/[0.07]"
+            >
+              <div className="relative aspect-video w-full overflow-hidden bg-graphite">
+                {video.kind === "local" ? (
+                  <video
+                    src={video.src}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0&modestbranding=1`}
+                    title={video.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                )}
+              </div>
+              <div className="flex items-start justify-between gap-4 p-5 sm:p-6">
+                <div>
+                  <p className="text-xs font-extrabold uppercase tracking-wide text-yellow">Vídeo em destaque</p>
+                  <h3 className="mt-1 text-lg font-extrabold text-graphite-foreground sm:text-xl">
+                    {video.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-graphite-foreground/70">
+                    {video.description}
+                  </p>
+                </div>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-yellow text-yellow-foreground opacity-90 transition-transform group-hover:scale-110 group-hover:opacity-100">
+                  <Play className="h-4 w-4 fill-current" aria-hidden="true" />
+                </span>
+              </div>
+            </article>
+          ))}
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
