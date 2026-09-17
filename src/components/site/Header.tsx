@@ -7,6 +7,7 @@ import { company, whatsappLink } from "@/config/company";
 const links = [
   { href: "#inicio", label: "Início" },
   { href: "#servicos", label: "Serviços" },
+  { href: "#videos-turisticos", label: "Vídeos" },
   { href: "#estimativa", label: "Estimativa" },
   { href: "#agendar", label: "Agendar" },
   { href: "#sobre", label: "Sobre" },
