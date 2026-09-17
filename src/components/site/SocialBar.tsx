@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { company, socials, whatsappLink } from "@/config/company";
 
 type Network = {
@@ -8,7 +9,7 @@ type Network = {
   color: string;
   /** Cor do brilho projetado no hover. */
   glow: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string }>;
 };
 
 /* Marcas em SVG próprio para manter as cores oficiais de cada rede. */
