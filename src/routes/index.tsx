@@ -13,6 +13,7 @@ import { Places } from "@/components/site/Places";
 import { TouristVideos } from "@/components/site/TouristVideos";
 import { Partners } from "@/components/site/Partners";
 import { MapContactSection } from "@/components/site/MapContactSection";
+import { SocialBar } from "@/components/site/SocialBar";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
@@ -95,6 +96,7 @@ function Index() {
         <About />
         <WhySaoPaulo />
         <MapContactSection />
+        <SocialBar />
         <FinalCTA />
       </main>
       <Footer />
