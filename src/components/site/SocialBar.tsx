@@ -115,9 +115,10 @@ export function SocialBar() {
           </p>
         </div>
 
-        <ul className="mt-10 flex flex-wrap items-start justify-center gap-x-6 gap-y-8 sm:gap-x-10">
+        <ul className="mt-10 flex flex-wrap items-start justify-center gap-x-3 gap-y-8 sm:gap-x-10">
           {networks.map(({ label, href, handle, color, glow, icon: Icon }) => (
-            <li key={label} className="w-28 text-center sm:w-32">
+            <li key={label} className="w-[30%] min-w-24 text-center sm:w-32">
+
               <a
                 href={href}
                 target="_blank"
