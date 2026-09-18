@@ -8,35 +8,35 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import faixaPedestreAsset from "@/assets/partners/aviso-faixa-pedestre.png.asset.json";
-import transitoSeguroAsset from "@/assets/partners/aviso-transito-seguro.png.asset.json";
-import autoGeralPardalAsset from "@/assets/partners/parceiro-auto-geral-pardal.png.asset.json";
-import leiteSoutoAsset from "@/assets/partners/parceiro-leite-souto.png.asset.json";
+import faixaPedestre from "@/assets/partners/aviso-faixa-pedestre.png";
+import transitoSeguro from "@/assets/partners/aviso-transito-seguro.png";
+import autoGeralPardal from "@/assets/partners/parceiro-auto-geral-pardal.png";
+import leiteSouto from "@/assets/partners/parceiro-leite-souto.png";
 
 const partnerSlides = [
   {
-    image: faixaPedestreAsset.url,
+    image: faixaPedestre,
     title: "Perceba o risco. Proteja a vida.",
     tag: "Aviso",
     icon: ShieldAlert,
     alt: "Aviso de segurança para atravessar somente na faixa de pedestre",
   },
   {
-    image: transitoSeguroAsset.url,
+    image: transitoSeguro,
     title: "Trânsito seguro",
     tag: "Aviso",
     icon: ShieldAlert,
     alt: "Aviso de trânsito seguro para pedestres, ciclistas, motociclistas e motoristas",
   },
   {
-    image: autoGeralPardalAsset.url,
+    image: autoGeralPardal,
     title: "Auto Geral Pardal",
     tag: "Parceiro",
     icon: Handshake,
     alt: "Cartão do parceiro Auto Geral Pardal",
   },
   {
-    image: leiteSoutoAsset.url,
+    image: leiteSouto,
     title: "Leite e Souto Advogados",
     tag: "Parceiro",
     icon: Handshake,

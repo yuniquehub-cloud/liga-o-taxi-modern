@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Facebook, Globe, Instagram, Mail, MessageCircle, Play, Square, Twitter, Volume2, Youtube } from "lucide-react";
-import featuredVideoAsset from "@/assets/video/video-sp-light.mp4.asset.json";
+import featuredVideo from "@/assets/video/video-sp-light.mp4";
 import { company, socials, whatsappLink } from "@/config/company";
 
 const socialLinks = [
@@ -15,7 +15,7 @@ const socialLinks = [
 const featuredVideos = [
   {
     kind: "local" as const,
-    src: featuredVideoAsset.url,
+    src: featuredVideo,
     title: "Passeio guiado por São Paulo",
     description: "Vídeo otimizado para carregar mais rápido sem pesar o site.",
   },
