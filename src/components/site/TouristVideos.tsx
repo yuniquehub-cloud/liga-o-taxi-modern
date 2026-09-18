@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Facebook, Globe, Instagram, Mail, MessageCircle, Play, Square, Twitter, Volume2, Youtube } from "lucide-react";
-import featuredVideo from "@/assets/video/video-sp-light.mp4";
+import featuredVideo from "@/assets/video/video-sp-light.webm";
 import { company, socials, whatsappLink } from "@/config/company";
 
 const socialLinks = [
